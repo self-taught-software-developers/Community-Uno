@@ -1,0 +1,7 @@
+[versions]
+kotlin_version = "1.9.20"
+kmp_version = "1.9.20"
+[libraries]
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kmp_version"}
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin_version" }
