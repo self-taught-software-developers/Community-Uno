@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/TestMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="baseline reached.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +87,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/Revok/IdeaProjects/Community-Uno/webApp/src",
+    "last_opened_file_path": "C:/Users/Revok/IdeaProjects/kotlin-wasm-examples",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -215,7 +206,20 @@
       <option name="presentableId" value="Default" />
       <updated>1700492151870</updated>
     </task>
+    <task id="LOCAL-00001" summary="baseline reached.">
+      <option name="closed" value="true" />
+      <created>1700598722637</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700598722637</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="baseline reached." />
+    <option name="LAST_COMMIT_MESSAGE" value="baseline reached." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
