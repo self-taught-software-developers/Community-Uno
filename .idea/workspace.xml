@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="baseline reached.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;.">
+      <change afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/TestMain.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,21 +81,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/Revok/IdeaProjects/kotlin-wasm-examples",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Revok/IdeaProjects/kotlin-wasm-examples&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src" />
@@ -163,8 +165,8 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TestMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestMainKt" />
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="Community-Uno.webApp.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,7 +187,6 @@
       <list>
         <item itemvalue="Gradle.Community-Uno:webApp [wasmJsBrowserRun]" />
         <item itemvalue="Gradle.Community-Uno:webApp [build]" />
-        <item itemvalue="Kotlin.TestMainKt" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -214,12 +215,32 @@
       <option name="project" value="LOCAL" />
       <updated>1700598722637</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;.">
+      <option name="closed" value="true" />
+      <created>1701110781097</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701110781097</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="baseline reached." />
-    <option name="LAST_COMMIT_MESSAGE" value="baseline reached." />
+    <MESSAGE value="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
