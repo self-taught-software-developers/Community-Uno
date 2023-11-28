@@ -11,4 +11,5 @@ pluginManagement {
     }
 }
 
-include(":webApp")
+include("webApp")
+include("shared")

@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code.">
-      <change afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/load.mjs" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="wasm is now implemented as a method of loading compose on web.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,28 +90,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Revok/StudioProjects/PeopleInSpace/compose-web-wasm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/Revok/StudioProjects/PeopleInSpace/compose-web-wasm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src\wasmJsMain\kotlin" />
+      <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\shared\src" />
+      <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src\wasmJsMain\kotlin" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\shared\commonMain" />
     </key>
@@ -261,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701111989276</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="wasm is now implemented as a method of loading compose on web.">
+      <option name="closed" value="true" />
+      <created>1701137775732</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701137775732</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,7 +283,8 @@
     <MESSAGE value="baseline reached." />
     <MESSAGE value="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;." />
     <MESSAGE value="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code." />
-    <option name="LAST_COMMIT_MESSAGE" value="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code." />
+    <MESSAGE value="wasm is now implemented as a method of loading compose on web." />
+    <option name="LAST_COMMIT_MESSAGE" value="wasm is now implemented as a method of loading compose on web." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
