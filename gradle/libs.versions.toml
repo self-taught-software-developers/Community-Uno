@@ -1,8 +1,8 @@
 [versions]
 kotlin_version = "1.9.20"
 kmp_version = "1.9.20"
-compose_kmp_version = "1.5.10-dev-wasm03"
-git_live_firebase_version = "1.10.3"
+compose_kmp_version = "1.5.11"
+git_live_firebase_version = "1.10.4"
 
 [libraries]
 #jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose_kmp_version" }
