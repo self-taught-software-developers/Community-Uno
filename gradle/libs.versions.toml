@@ -1,7 +1,16 @@
 [versions]
 kotlin_version = "1.9.20"
 kmp_version = "1.9.20"
+compose_kmp_version = "1.5.10-dev-wasm03"
+
 [libraries]
+#jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose_kmp_version" }
+#jetbrains-compose-component = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose_kmp_version" }
+#jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose_kmp_version" }
+#jetbrains-compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "compose_kmp_version" }
+#jetbrains-compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose_kmp_version" }
+
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kmp_version"}
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin_version" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose_kmp_version"}

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;.">
-      <change afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code.">
+      <change afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/load.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/TestMain.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +32,9 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/webApp/wasmJsMain">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
           <activation />
         </task>
         <projects_view>
@@ -66,6 +74,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Simple.kt" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KotlinScriptingSettings">
+    <scriptDefinition className="org.jetbrains.kotlin.scripting.resolve.KotlinScriptDefinitionFromAnnotatedTemplate" definitionName="KotlinBuildScript">
+      <order>2147483647</order>
+      <autoReloadConfigurations>true</autoReloadConfigurations>
+    </scriptDefinition>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -89,7 +103,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Revok/IdeaProjects/kotlin-wasm-examples&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Revok/StudioProjects/PeopleInSpace/compose-web-wasm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -120,6 +134,28 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Community-Uno [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="Community-Uno:webApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -186,19 +222,13 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Community-Uno:webApp [wasmJsBrowserRun]" />
+        <item itemvalue="Gradle.Community-Uno [build]" />
         <item itemvalue="Gradle.Community-Uno:webApp [build]" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="StandaloneScriptsStorage">
-    <option name="files">
-      <set>
-        <option value="$PROJECT_DIR$/webApp/build.gradle.kts" />
-      </set>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="" />
@@ -223,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701110781097</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code.">
+      <option name="closed" value="true" />
+      <created>1701111989276</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701111989276</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,7 +278,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="baseline reached." />
     <MESSAGE value="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;." />
+    <MESSAGE value="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code." />
+    <option name="LAST_COMMIT_MESSAGE" value="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

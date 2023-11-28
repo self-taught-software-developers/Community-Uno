@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.jetbrains.compose)
 }
 
 group = "org.example"
@@ -13,7 +14,6 @@ repositories {
 
 kotlin {
     wasmJs {
-        binaries.executable()
         browser {
             commonWebpackConfig {
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
@@ -30,19 +30,28 @@ kotlin {
                     }
                 }
             }
-
+            binaries.executable()
             // Uncomment the next line to apply Binaryen and get optimized wasm binaries
             // applyBinaryen()
         }
     }
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
+        val jsWasmMain by creating {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(compose.runtime)
+                implementation(compose.ui)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
             }
         }
-        val wasmJsMain by getting
-        val wasmJsTest by getting
+        val wasmJsMain by getting {
+            dependsOn(jsWasmMain)
+        }
     }
+}
+
+compose.experimental {
+    web.application { }
 }

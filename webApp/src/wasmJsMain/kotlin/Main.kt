@@ -1,29 +1,9 @@
-import kotlinx.browser.document
-import kotlinx.dom.appendElement
-import kotlinx.dom.appendText
-import org.w3c.dom.HTMLInputElement
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.window.CanvasBasedWindow
 
+@OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    document.body?.appendElement("div") {
-        appendText("Time in ")
+    CanvasBasedWindow("test") {
 
-        val output = document.createElement("span")
-
-        val input = appendElement("input") {
-            this as HTMLInputElement
-            type = "text"
-            placeholder="Timezone"
-
-            value = "Europe/Amsterdam"
-
-            addEventListener("change") {
-//                updateTime(this, output)
-            }
-        } as HTMLInputElement
-
-        appendText(" is ")
-        appendChild(output)
-
-//        updateTime(input, output)
     }
 }
