@@ -4,31 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="shared module implemented with gitLive(a firebase sdk extension)'s authentication and kotlin's serialization to allow for anonymous authentications.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/shared_js.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/shared_jvm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/shared_wasm_js.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/webApp_js.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/jsMain/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="migration to kotlin JS instead of kotlin wasm due to official support and stable apis.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-js-store/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-js-store/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/wasmJsMain/resources/load.mjs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701137775732</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="migration to kotlin JS instead of kotlin wasm due to official support and stable apis.">
+      <option name="closed" value="true" />
+      <created>1701208436631</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701208436631</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,7 +319,8 @@
     <MESSAGE value="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;." />
     <MESSAGE value="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code." />
     <MESSAGE value="wasm is now implemented as a method of loading compose on web." />
-    <option name="LAST_COMMIT_MESSAGE" value="wasm is now implemented as a method of loading compose on web." />
+    <MESSAGE value="migration to kotlin JS instead of kotlin wasm due to official support and stable apis." />
+    <option name="LAST_COMMIT_MESSAGE" value="migration to kotlin JS instead of kotlin wasm due to official support and stable apis." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
