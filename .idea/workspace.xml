@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="migration to kotlin JS instead of kotlin wasm due to official support and stable apis.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="created ui package and moved shared ui Main.kt to the ui package." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -300,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701208436631</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="created ui package and moved shared ui Main.kt to the ui package.">
+      <option name="closed" value="true" />
+      <created>1701266991359</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701266991359</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -320,7 +326,8 @@
     <MESSAGE value="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code." />
     <MESSAGE value="wasm is now implemented as a method of loading compose on web." />
     <MESSAGE value="migration to kotlin JS instead of kotlin wasm due to official support and stable apis." />
-    <option name="LAST_COMMIT_MESSAGE" value="migration to kotlin JS instead of kotlin wasm due to official support and stable apis." />
+    <MESSAGE value="created ui package and moved shared ui Main.kt to the ui package." />
+    <option name="LAST_COMMIT_MESSAGE" value="created ui package and moved shared ui Main.kt to the ui package." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
