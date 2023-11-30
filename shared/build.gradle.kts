@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-
 plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.multiplatform)
@@ -22,7 +20,9 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-//
+
+                api(libs.koin.core)
+
                 with(libs.gitlive) {
                     implementation(auth)
                 }

@@ -3,6 +3,7 @@ kotlin_version = "1.9.20"
 kmp_version = "1.9.20"
 compose_kmp_version = "1.5.11"
 git_live_firebase_version = "1.10.4"
+koin_version = "3.2.0"
 
 [libraries]
 #jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose_kmp_version" }
@@ -10,6 +11,8 @@ git_live_firebase_version = "1.10.4"
 #jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose_kmp_version" }
 #jetbrains-compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "compose_kmp_version" }
 #jetbrains-compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose_kmp_version" }
+
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin_version" }
 
 gitlive-auth = { module = "dev.gitlive:firebase-auth", version.ref = "git_live_firebase_version" }
 #gitlive-firestore = { module = "dev.gitlive:firebase-firestore", version.feref = "git_live_firebase_version" }

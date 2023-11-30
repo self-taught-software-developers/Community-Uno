@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="created ui package and moved shared ui Main.kt to the ui package." />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="created GetAuthenticationUseCase.kt">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +51,7 @@
       <list>
         <option value="Kotlin File" />
         <option value="HTML File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -110,11 +118,11 @@
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\shared\src\commonMain\kotlin\ui" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\shared\src" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp\src\wasmJsMain\kotlin" />
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp" />
-      <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\shared\commonMain" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserRun]">
@@ -306,7 +314,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701266991359</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="created domain package and created GetSessionUseCase.kt.">
+      <option name="closed" value="true" />
+      <created>1701267228237</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701267228237</updated>
+    </task>
+    <task id="LOCAL-00008" summary="created GetAuthenticationUseCase.kt">
+      <option name="closed" value="true" />
+      <created>1701267367348</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701267367348</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,7 +351,9 @@
     <MESSAGE value="wasm is now implemented as a method of loading compose on web." />
     <MESSAGE value="migration to kotlin JS instead of kotlin wasm due to official support and stable apis." />
     <MESSAGE value="created ui package and moved shared ui Main.kt to the ui package." />
-    <option name="LAST_COMMIT_MESSAGE" value="created ui package and moved shared ui Main.kt to the ui package." />
+    <MESSAGE value="created domain package and created GetSessionUseCase.kt." />
+    <MESSAGE value="created GetAuthenticationUseCase.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="created GetAuthenticationUseCase.kt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
