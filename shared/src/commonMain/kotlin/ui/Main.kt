@@ -8,8 +8,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MainScreen() {
+fun MainScreen(text: String?) {
     Box(Modifier.fillMaxSize(), Alignment.Center) {
-        Text("Hello, world!")
+        Text(text ?: "Hello, world!")
     }
 }
