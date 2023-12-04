@@ -15,7 +15,7 @@ koin_version = "3.2.0"
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin_version" }
 
 gitlive-auth = { module = "dev.gitlive:firebase-auth", version.ref = "git_live_firebase_version" }
-#gitlive-firestore = { module = "dev.gitlive:firebase-firestore", version.feref = "git_live_firebase_version" }
+#gitlive-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "git_live_firebase_version" }
 
 
 [plugins]

@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import org.koin.core.context.startKoin
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
@@ -18,7 +19,7 @@ fun initKoin(
     appDeclaration()
     modules(remoteModule(enableNetworkLogs), domainModule())
 }
-fun initKoin() = initKoin(enableNetworkLogs = false) {}
+fun initKoin() = initKoin { }
 
 fun remoteModule(enableNetworkLogs: Boolean) = module {
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
@@ -26,6 +27,6 @@ fun remoteModule(enableNetworkLogs: Boolean) = module {
 }
 
 fun domainModule() = module {
-    single { GetAuthenticationUseCase() }
-    single { GetSessionUseCase() }
+    singleOf(::GetAuthenticationUseCase)
+    singleOf(::GetSessionUseCase)
 }

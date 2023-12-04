@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="Github pages deployment error resolution.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="Firebase auth added to koin di">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,28 +129,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserRun]">
-    <configuration name="Community-Uno [jsBrowserProductionRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jsBrowserProductionRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="Community-Uno [jsBrowserRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -180,6 +163,28 @@
         <option name="taskNames">
           <list>
             <option value="kotlinUpgradeYarnLock" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Community-Uno:webApp [jsBrowserProductionRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/webApp" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jsBrowserProductionRun" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -248,10 +253,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserRun]" />
+        <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionRun]" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionWebpack]" />
         <item itemvalue="Gradle.Community-Uno [kotlinUpgradeYarnLock]" />
         <item itemvalue="Gradle.Community-Uno [jsBrowserRun]" />
-        <item itemvalue="Gradle.Community-Uno [jsBrowserProductionRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701563497672</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Firebase auth added to koin di">
+      <option name="closed" value="true" />
+      <created>1701654005873</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701654005873</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,7 +391,8 @@
     <MESSAGE value="koin included for dependency management and injection." />
     <MESSAGE value="dependency management and injection test with a simple count to 100 implementation." />
     <MESSAGE value="Github pages deployment error resolution." />
-    <option name="LAST_COMMIT_MESSAGE" value="Github pages deployment error resolution." />
+    <MESSAGE value="Firebase auth added to koin di" />
+    <option name="LAST_COMMIT_MESSAGE" value="Firebase auth added to koin di" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

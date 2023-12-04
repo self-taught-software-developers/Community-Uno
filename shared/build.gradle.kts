@@ -24,8 +24,9 @@ kotlin {
                 api(libs.koin.core)
 
                 with(libs.gitlive) {
-                    implementation(auth)
+                    api(auth)
                 }
+
             }
         }
         val jsMain by getting {
