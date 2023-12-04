@@ -1,5 +1,7 @@
 package di
 
+import dev.gitlive.firebase.Firebase
+import dev.gitlive.firebase.auth.auth
 import domain.GetAuthenticationUseCase
 import domain.GetSessionUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -14,12 +16,13 @@ fun initKoin(
     appDeclaration: KoinAppDeclaration = { }
 ) = startKoin {
     appDeclaration()
-    modules(commonModule(enableNetworkLogs), domainModule())
+    modules(remoteModule(enableNetworkLogs), domainModule())
 }
 fun initKoin() = initKoin(enableNetworkLogs = false) {}
 
-fun commonModule(enableNetworkLogs: Boolean) = module {
+fun remoteModule(enableNetworkLogs: Boolean) = module {
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
+    single { Firebase.auth }
 }
 
 fun domainModule() = module {
