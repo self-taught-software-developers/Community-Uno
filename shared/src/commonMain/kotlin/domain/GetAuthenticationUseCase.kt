@@ -1,6 +1,7 @@
 package domain
 
 import dev.gitlive.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.koin.core.component.KoinComponent
 
@@ -11,5 +12,5 @@ class GetAuthenticationUseCase(
         if (it == null) {
             auth.signInAnonymously()
         }
-    }
+    }.map { it?.uid.toString() }
 }

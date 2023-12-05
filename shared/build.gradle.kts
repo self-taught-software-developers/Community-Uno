@@ -25,6 +25,7 @@ kotlin {
 
                 with(libs.gitlive) {
                     api(auth)
+                    implementation(firestore)
                 }
 
             }

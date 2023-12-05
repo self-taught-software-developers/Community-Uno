@@ -2,7 +2,9 @@ package di
 
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.auth
+import dev.gitlive.firebase.firestore.firestore
 import domain.GetAuthenticationUseCase
+import domain.GetDatabaseUseCase
 import domain.GetSessionUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,9 +26,11 @@ fun initKoin() = initKoin { }
 fun remoteModule(enableNetworkLogs: Boolean) = module {
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
     single { Firebase.auth }
+    single { Firebase.firestore }
 }
 
 fun domainModule() = module {
     singleOf(::GetAuthenticationUseCase)
+    singleOf(::GetDatabaseUseCase)
     singleOf(::GetSessionUseCase)
 }
