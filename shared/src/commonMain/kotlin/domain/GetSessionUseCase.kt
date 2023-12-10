@@ -1,21 +1,23 @@
 package domain
 
-import dev.gitlive.firebase.firestore.FirebaseFirestore
-import dev.gitlive.firebase.firestore.where
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.map
+import model.Card
+import model.CommunityUnoSession
 import org.koin.core.component.KoinComponent
 
 class GetSessionUseCase(
     private val authUseCase: GetAuthenticationUseCase,
-    private val dbUseCase: GetDatabaseUseCase
+    private val unAssignedCards: GetUnAssignedCardsUseCase
 ) : KoinComponent {
-    operator fun invoke() : Flow<String> = combine(
+    operator fun invoke() : Flow<CommunityUnoSession> = combine(
         authUseCase.invoke(),
-        dbUseCase.invoke()
-    ) { auth, db ->
-        db.toString()
+        unAssignedCards.invoke()
+    ) { authId, unAssignedCards ->
+        CommunityUnoSession(
+            id = authId,
+            deck = unAssignedCards
+        )
     }
 
 }
