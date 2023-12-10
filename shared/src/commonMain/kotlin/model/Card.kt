@@ -4,5 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Card(
-    private val name: String
+    val type: CardType,
+    val name: String = type.name,
+    val color: CardColor
 )

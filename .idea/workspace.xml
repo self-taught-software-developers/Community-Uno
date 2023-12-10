@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="Firebase auth implementation complete with anonymous user uuid fetching.">
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDatabaseUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="Firebase store implementation complete with read access for all users.">
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDeckUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetShuffleAndDealUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CardColor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CardType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDatabaseUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetUnAssignedCardsUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +62,7 @@
         <option value="HTML File" />
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Enum" />
         <option value="Kotlin Data Class" />
       </list>
     </option>
@@ -130,7 +139,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserRun]">
-    <configuration name="Community-Uno [jsBrowserRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Community-Uno [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -141,29 +150,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jsBrowserRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Community-Uno [kotlinUpgradeYarnLock]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="kotlinUpgradeYarnLock" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -240,6 +227,28 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="main" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/shared" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jsBrowserDevelopmentRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -254,10 +263,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserRun]" />
+        <item itemvalue="Gradle.Community-Uno [build]" />
+        <item itemvalue="Gradle.main" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionRun]" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionWebpack]" />
-        <item itemvalue="Gradle.Community-Uno [kotlinUpgradeYarnLock]" />
-        <item itemvalue="Gradle.Community-Uno [jsBrowserRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -374,7 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701659489874</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Firebase store implementation complete with read access for all users.">
+      <option name="closed" value="true" />
+      <created>1701792002321</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701792002321</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -402,7 +419,8 @@
     <MESSAGE value="Github pages deployment error resolution." />
     <MESSAGE value="Firebase auth added to koin di" />
     <MESSAGE value="Firebase auth implementation complete with anonymous user uuid fetching." />
-    <option name="LAST_COMMIT_MESSAGE" value="Firebase auth implementation complete with anonymous user uuid fetching." />
+    <MESSAGE value="Firebase store implementation complete with read access for all users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Firebase store implementation complete with read access for all users." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
