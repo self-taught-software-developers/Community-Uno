@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="assemble with gradle added to GitHub Action with webApp/build/dist.">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-and-publish-kjs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-and-publish-kjs.yml" afterDir="false" />
-    </list>
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="assemble with gradle added to GitHub Action with webApp/build/dist." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
