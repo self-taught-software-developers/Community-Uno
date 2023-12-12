@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="site hosting on GitHub Pages via GitHub Action with write permissions.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="site hosting on GitHub Pages via GitHub Action with write permissions for id-token and pages.">
       <change beforePath="$PROJECT_DIR$/.github/workflows/build-and-publish-kjs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-and-publish-kjs.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -124,7 +124,7 @@
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserRun]">
+  <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserDistribution]">
     <configuration name="Community-Uno [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -147,6 +147,28 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="Community-Uno:webApp [jsBrowserDistribution]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/webApp" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jsBrowserDistribution" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="Community-Uno:webApp [jsBrowserProductionRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -159,28 +181,6 @@
         <option name="taskNames">
           <list>
             <option value="jsBrowserProductionRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Community-Uno:webApp [jsBrowserProductionWebpack]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/webApp" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jsBrowserProductionWebpack" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -248,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserDistribution]" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserRun]" />
         <item itemvalue="Gradle.Community-Uno [build]" />
         <item itemvalue="Gradle.main" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionRun]" />
-        <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionWebpack]" />
       </list>
     </recent_temporary>
   </component>
@@ -464,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702406325371</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="site hosting on GitHub Pages via GitHub Action with write permissions for id-token and pages.">
+      <option name="closed" value="true" />
+      <created>1702406657051</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702406657051</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,7 +510,8 @@
     <MESSAGE value="assemble with gradle added to GitHub Action with jsBrowserDistribution." />
     <MESSAGE value="assemble with gradle added to GitHub Action with webApp/build/dist." />
     <MESSAGE value="site hosting on GitHub Pages via GitHub Action with write permissions." />
-    <option name="LAST_COMMIT_MESSAGE" value="site hosting on GitHub Pages via GitHub Action with write permissions." />
+    <MESSAGE value="site hosting on GitHub Pages via GitHub Action with write permissions for id-token and pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="site hosting on GitHub Pages via GitHub Action with write permissions for id-token and pages." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

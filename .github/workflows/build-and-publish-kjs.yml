@@ -31,7 +31,8 @@ jobs:
           arguments: check
 
       - name: Assemble with Gradle
-        run: ./gradlew :webApp:jsBrowserDistribution
+#        run: ./gradlew :webApp:jsBrowserDistribution
+        run: ./gradlew :webApp:browserDistribution
 
       - uses: actions/upload-pages-artifact@v1
         with:
