@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="player data implementation started.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="migration back to github actions for build and publication of site.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -423,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702395009155</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="migration back to github actions for build and publication of site.">
+      <option name="closed" value="true" />
+      <created>1702397905414</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1702397905414</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -457,7 +465,8 @@
     <MESSAGE value="ui components created as a rough draft." />
     <MESSAGE value="phase draft" />
     <MESSAGE value="player data implementation started." />
-    <option name="LAST_COMMIT_MESSAGE" value="player data implementation started." />
+    <MESSAGE value="migration back to github actions for build and publication of site." />
+    <option name="LAST_COMMIT_MESSAGE" value="migration back to github actions for build and publication of site." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
