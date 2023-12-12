@@ -60,6 +60,7 @@ fun main() {
                 Text("deck size: ${state.deck.size}")
                 Text("usable deck size: ${useAbleDeck.size}")
                 Text("hand size: ${hand.size}")
+                Text("Player count: ${state.players.size}")
 
                 GameTableScreen(
                     deck = hand,

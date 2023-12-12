@@ -12,7 +12,8 @@ import org.koin.core.component.KoinComponent
 class GetSessionUseCase(
     private val firebase: FirebaseFirestore,
     private val authUseCase: GetAuthenticationUseCase,
-    private val deckOfCards: GetDeckOfCardsUseCase
+    private val deckOfCards: GetDeckOfCardsUseCase,
+    private val listOfPlayers: GetPlayersUseCase
 ) : KoinComponent {
 
     private lateinit var userAuthId: String
@@ -20,18 +21,20 @@ class GetSessionUseCase(
 
     operator fun invoke() : Flow<CommunityUnoSession> = combine(
         authUseCase.invoke(),
-        deckOfCards.invoke()
-    ) { authId, fullDeck ->
+        deckOfCards.invoke(),
+        listOfPlayers.invoke()
+    ) { authId, fullDeck, players ->
         userAuthId = authId
         CommunityUnoSession(
             id = authId,
-            deck = fullDeck
+            deck = fullDeck,
+            players = players
         )
     }.onEach {
         if (isFirstRun) {
             firebase.collection(Collection.GameSession.name)
                 .document(Document.ActivePlayers.name)
-                .set(hashMapOf(Field.Player.name to Profile(
+                .set(hashMapOf(userAuthId to Profile(
                     id = userAuthId,
                     isActive = true
                 )))
