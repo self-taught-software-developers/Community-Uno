@@ -32,7 +32,7 @@ jobs:
 
       - name: Assemble with Gradle
 #        run: ./gradlew :webApp:jsBrowserDistribution
-        run: ./gradlew :webApp:browserDistribution
+        run: ./gradlew :webApp:jsBrowserRun
 
       - uses: actions/upload-pages-artifact@v1
         with:
