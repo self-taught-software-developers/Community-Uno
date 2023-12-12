@@ -4,11 +4,12 @@ import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.auth
 import dev.gitlive.firebase.firestore.firestore
 import domain.GetAuthenticationUseCase
-import domain.GetUnAssignedCardsUseCase
+import domain.GetDeckOfCardsUseCase
 import domain.GetSessionUseCase
 import domain.GetDeckUseCase
 import domain.GetShuffleAndDealUseCase
 import domain.GetNewGameUseCase
+import domain.GetCardFromDeckUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -34,9 +35,10 @@ fun remoteModule(enableNetworkLogs: Boolean) = module {
 
 fun domainModule() = module {
     singleOf(::GetAuthenticationUseCase)
-    singleOf(::GetUnAssignedCardsUseCase)
+    singleOf(::GetDeckOfCardsUseCase)
     singleOf(::GetSessionUseCase)
     singleOf(::GetDeckUseCase)
     singleOf(::GetShuffleAndDealUseCase)
     singleOf(::GetNewGameUseCase)
+    singleOf(::GetCardFromDeckUseCase)
 }

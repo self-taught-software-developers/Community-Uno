@@ -1,7 +1,8 @@
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.produceState
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.CanvasBasedWindow
 import dev.gitlive.firebase.Firebase
@@ -36,43 +37,62 @@ fun main() {
 
     onWasmReady {
         CanvasBasedWindow(canvasElementId = "compose-canvas") {
-//            val state by produceState<String?>(null) {
-//                counterTest.invoke().collectLatest { count ->
-//                    value = count
-//                }
-//            }
-//            MainScreen(state)
 
             val state by produceState(
                 CommunityUnoSession(id = "")
             ) {
-                session.invoke().collectLatest { session ->
+                session.invoke().collect { session ->
                     value = session
                 }
             }
+            val useAbleDeck by remember(state) {
+                derivedStateOf {
+                    state.deck.filter { it.ownerId == null }
+                }
+            }
+            val hand by remember(state) { derivedStateOf {
+                state.deck.filter { it.ownerId == state.id }
+            } }
             val scope = rememberCoroutineScope()
 
-            GameTableScreen(
-                deck = state.deck,
-                onNewGame = {
-                    scope.launch {
-                        koin.get<GetNewGameUseCase>().invoke()
+            Column {
+                Text(state.id)
+                Text("deck size: ${state.deck.size}")
+                Text("usable deck size: ${useAbleDeck.size}")
+                Text("hand size: ${hand.size}")
+
+                GameTableScreen(
+                    deck = hand,
+                    onNewGame = {
+                        scope.launch {
+                            koin.get<GetNewGameUseCase>().invoke()
+                        }
+                    },
+                    onShuffle = {
+                        scope.launch {
+
+                        }
+                    },
+                    onDrawCard = {
+                        scope.launch {
+                            koin.get<GetCardFromDeckUseCase>().invoke(
+                                state.id,
+                                state.deck
+                            )
+                        }
                     }
-                },
-                onShuffle = {
-                    scope.launch {
-                        koin.get<GetShuffleAndDealUseCase>().invoke(state.deck)
+                )
+                Row {
+                    Button(onClick = { }) {
+                        Text("Create Game")
                     }
-                },
-                onDrawCard = {
-                    scope.launch {
-                        koin.get<GetCardFromDeckUseCase>().invoke(
-                            state.id,
-                            state.deck.random()
-                        )
+
+                    Button(onClick = { }) {
+                        Text("Play Game")
                     }
                 }
-            )
+            }
+
         }
     }
 }

@@ -4,6 +4,7 @@ kmp_version = "1.9.20"
 compose_kmp_version = "1.5.11"
 git_live_firebase_version = "1.10.4"
 koin_version = "3.2.0"
+kotlinx_datetime_version = "0.5.0"
 
 [libraries]
 #jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose_kmp_version" }
@@ -17,6 +18,7 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin_version" 
 gitlive-auth = { module = "dev.gitlive:firebase-auth", version.ref = "git_live_firebase_version" }
 gitlive-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "git_live_firebase_version" }
 
+kotlinx_datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx_datetime_version" }
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kmp_version"}

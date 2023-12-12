@@ -4,22 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="Firebase store implementation complete with read access for all users.">
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDeckUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetShuffleAndDealUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CardColor.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CardType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="ui components created as a rough draft.">
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Profile.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/util/RandomUUID.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/jsMain/kotlin/util/RandomUUID.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDatabaseUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetUnAssignedCardsUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetAuthenticationUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDeckUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDeckUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetUnAssignedCardsUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDeckOfCardsUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,10 +62,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Enum" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -271,6 +273,13 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StandaloneScriptsStorage">
+    <option name="files">
+      <set>
+        <option value="$PROJECT_DIR$/webApp/build.gradle.kts" />
+      </set>
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="" />
@@ -391,7 +400,31 @@
       <option name="project" value="LOCAL" />
       <updated>1701792002321</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="models created for cards and game session.">
+      <option name="closed" value="true" />
+      <created>1702173537338</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1702173537338</updated>
+    </task>
+    <task id="LOCAL-00016" summary="use cases and keys created for game and db management.">
+      <option name="closed" value="true" />
+      <created>1702173601826</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1702173601826</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ui components created as a rough draft.">
+      <option name="closed" value="true" />
+      <created>1702173634444</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702173634444</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,7 +453,10 @@
     <MESSAGE value="Firebase auth added to koin di" />
     <MESSAGE value="Firebase auth implementation complete with anonymous user uuid fetching." />
     <MESSAGE value="Firebase store implementation complete with read access for all users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Firebase store implementation complete with read access for all users." />
+    <MESSAGE value="models created for cards and game session." />
+    <MESSAGE value="use cases and keys created for game and db management." />
+    <MESSAGE value="ui components created as a rough draft." />
+    <option name="LAST_COMMIT_MESSAGE" value="ui components created as a rough draft." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

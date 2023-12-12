@@ -12,16 +12,10 @@ class GetNewGameUseCase(
     private val getDeck: GetDeckUseCase
 ) : KoinComponent {
     suspend operator fun invoke(deck: List<Card> = getDeck.invoke()) {
-
-        val field = hashMapOf<String, List<Card>>().apply {
-            this[Field.Deck.name] = deck
-        }
-
         fireStore
             .collection(Collection.GameSession.name)
             .document(Document.GameDeck.name)
-            .set(field)
+            .set(hashMapOf(Field.Deck.name to deck))
     }
-
 
 }

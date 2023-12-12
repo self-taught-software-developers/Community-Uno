@@ -20,6 +20,7 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+                implementation(libs.kotlinx.datetime)
 
                 api(libs.koin.core)
 

@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import model.Card
 import model.CardType
 
@@ -17,19 +18,24 @@ fun GameTableScreen(
     onNewGame: () -> Unit,
     onDrawCard: () -> Unit,
 ) {
-    BoxWithConstraints(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text("""
-            type: ${deck.groupingBy { it.type }.eachCount()}
-            name: ${deck.groupingBy { it.name }.eachCount()}
-            color: ${deck.groupingBy { it.color }.eachCount()}
-            numeric: ${deck.groupingBy { it.type == CardType.Number }.eachCount()}
-            total: ${deck.count()}
-        """.trimIndent())
-    }
     Column(modifier = Modifier.fillMaxSize()){
+        BoxWithConstraints(
+            modifier = Modifier
+                .weight(1f)
+                .padding(10.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                """
+                type: ${deck.groupingBy { it.type }.eachCount()}
+                name: ${deck.groupingBy { it.name }.eachCount()}
+                color: ${deck.groupingBy { it.color }.eachCount()}
+                numeric: ${deck.groupingBy { it.type == CardType.Number }.eachCount()}
+                total: ${deck.count()}
+                """.trimIndent()
+            )
+        }
+
         gameMasterTableScreen(
             onShuffleClick = onShuffle,
             onStartNewGameClick = onNewGame,
