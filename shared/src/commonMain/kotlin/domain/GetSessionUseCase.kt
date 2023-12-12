@@ -34,7 +34,7 @@ class GetSessionUseCase(
         if (isFirstRun) {
             firebase.collection(Collection.GameSession.name)
                 .document(Document.ActivePlayers.name)
-                .set(hashMapOf(userAuthId to Profile(
+                .update(hashMapOf(userAuthId to Profile(
                     id = userAuthId,
                     isActive = true
                 )))
