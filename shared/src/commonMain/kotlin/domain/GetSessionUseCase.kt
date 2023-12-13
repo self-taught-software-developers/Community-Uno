@@ -2,52 +2,40 @@ package domain
 
 import db.model.Collection
 import db.model.Document
-import db.model.Field
 import dev.gitlive.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import model.CommunityUnoSession
-import model.Profile
+import model.Player
 import org.koin.core.component.KoinComponent
 
 class GetSessionUseCase(
     private val firebase: FirebaseFirestore,
     private val authUseCase: GetAuthenticationUseCase,
     private val deckOfCards: GetDeckOfCardsUseCase,
-    private val listOfPlayers: GetPlayersUseCase
+    private val listOfPlayers: GetPlayersUseCase,
+    private val direction: GetGameDirectionUseCase
 ) : KoinComponent {
-
-    private lateinit var userAuthId: String
-    private var isFirstRun = true
-
-    operator fun invoke() : Flow<CommunityUnoSession> = combine(
-        authUseCase.invoke(),
-        deckOfCards.invoke(),
-        listOfPlayers.invoke()
-    ) { authId, fullDeck, players ->
-        userAuthId = authId
-        CommunityUnoSession(
-            id = authId,
-            deck = fullDeck,
-            players = players
-        )
-    }.onEach {
-        if (isFirstRun) {
-            firebase.collection(Collection.GameSession.name)
-                .document(Document.ActivePlayers.name)
-                .update(hashMapOf(userAuthId to Profile(
-                    id = userAuthId,
-                    isActive = true
-                )))
-            isFirstRun = false
+    @OptIn(ExperimentalCoroutinesApi::class)
+    operator fun invoke() : Flow<CommunityUnoSession> =
+        authUseCase.invoke().flatMapConcat {id ->
+            combine(
+                deckOfCards.invoke(),
+                listOfPlayers.invoke(),
+                direction.invoke()
+            ) { deck, players, data ->
+                CommunityUnoSession(
+                    id = id,
+                    deck = deck,
+                    isClockwise = data.isClockwise,
+                    players = players,
+                    playerId = data.currentPlayer
+                )
+            }.onStart {
+                val player = Player(id = id, isActive = true, isAdmin = false)
+                firebase.collection(Collection.GameSession.name)
+                    .document(Document.ActivePlayers.name)
+                    .set(data = hashMapOf(id to player), merge = true)
+            }
         }
-    }
-//        .onCompletion {
-//        firebase.collection(Collection.GameSession.name)
-//            .document(Document.ActivePlayers.name)
-//            .set(hashMapOf(Field.PlayerId.name to Profile(
-//                id = userAuthId,
-//                isActive = false
-//            )))
-//    }
-
 }

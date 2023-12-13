@@ -2,11 +2,8 @@ package domain
 
 import db.model.Collection
 import db.model.Document
-import db.model.Field
-import dev.gitlive.firebase.firestore.FieldValue
 import dev.gitlive.firebase.firestore.FirebaseFirestore
 import model.Card
-import org.koin.core.Koin
 import org.koin.core.component.KoinComponent
 
 class GetCardFromDeckUseCase(
@@ -16,7 +13,6 @@ class GetCardFromDeckUseCase(
         id: String,
         deck: List<Card>
     ) {
-
         if (id.isNotBlank()) {
             val drawnCard = deck.random().copy(ownerId = id)
 

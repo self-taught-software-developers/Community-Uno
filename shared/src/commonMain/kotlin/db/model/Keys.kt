@@ -6,10 +6,12 @@ enum class Collection {
 
 enum class Document {
     GameDeck,
+    GameData,
+    CurrentPlayer,
     ActivePlayers
 }
 
 enum class Field {
-    Deck,
-    Player
+    GameDirection,
+    CurrentPlayer
 }

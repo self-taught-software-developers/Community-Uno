@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="a new observe function has been created within the Observe.kt file to streamline reusable code.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="GetCardFromDeckUseCase.kt updated for quality of life.">
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetGameDirectionUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNextPlayerUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/SetGameDirectionUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Direction.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayersUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayersUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Profile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Player.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +58,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Kotlin File" />
         <option value="Kotlin Enum" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
-        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -536,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702420276655</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="GetCardFromDeckUseCase.kt updated for quality of life.">
+      <option name="closed" value="true" />
+      <created>1702426503253</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1702426503253</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -551,7 +571,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wasm is now implemented as a method of loading compose on web." />
     <MESSAGE value="migration to kotlin JS instead of kotlin wasm due to official support and stable apis." />
     <MESSAGE value="created ui package and moved shared ui Main.kt to the ui package." />
     <MESSAGE value="created domain package and created GetSessionUseCase.kt." />
@@ -576,7 +595,8 @@
     <MESSAGE value="GetSessionUseCase.kt allows for multiple users instead of overriding existing users." />
     <MESSAGE value="GetNewGameUseCase.kt deletes all cards within the deck then adds new ones." />
     <MESSAGE value="a new observe function has been created within the Observe.kt file to streamline reusable code." />
-    <option name="LAST_COMMIT_MESSAGE" value="a new observe function has been created within the Observe.kt file to streamline reusable code." />
+    <MESSAGE value="GetCardFromDeckUseCase.kt updated for quality of life." />
+    <option name="LAST_COMMIT_MESSAGE" value="GetCardFromDeckUseCase.kt updated for quality of life." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

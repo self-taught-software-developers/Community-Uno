@@ -10,7 +10,10 @@ import domain.GetDeckUseCase
 import domain.GetShuffleAndDealUseCase
 import domain.GetNewGameUseCase
 import domain.GetCardFromDeckUseCase
+import domain.SetGameDirectionUseCase
+import domain.GetGameDirectionUseCase
 import domain.GetPlayersUseCase
+import domain.GetNextPlayerUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -43,4 +46,7 @@ fun domainModule() = module {
     singleOf(::GetNewGameUseCase)
     singleOf(::GetCardFromDeckUseCase)
     singleOf(::GetPlayersUseCase)
+    singleOf(::SetGameDirectionUseCase)
+    singleOf(::GetGameDirectionUseCase)
+    singleOf(::GetNextPlayerUseCase)
 }

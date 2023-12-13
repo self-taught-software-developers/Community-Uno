@@ -13,12 +13,13 @@ import model.CardType
 
 @Composable
 fun GameTableScreen(
+    modifier: Modifier,
     deck: List<Card>,
     onShuffle: () -> Unit,
     onNewGame: () -> Unit,
     onDrawCard: () -> Unit,
 ) {
-    Column(modifier = Modifier.fillMaxSize()){
+    Column(modifier = modifier.fillMaxSize()){
         BoxWithConstraints(
             modifier = Modifier
                 .weight(1f)

@@ -4,7 +4,7 @@ import db.model.Collection
 import db.model.Document
 import dev.gitlive.firebase.firestore.FirebaseFirestore
 import helpers.observe
-import model.Profile
+import model.Player
 import org.koin.core.component.KoinComponent
 
 class GetPlayersUseCase(
@@ -14,6 +14,6 @@ class GetPlayersUseCase(
     operator fun invoke() = fireStore
         .collection(Collection.GameSession.name)
         .document(Document.ActivePlayers.name)
-        .observe<List<Profile>> { emptyList() }
+        .observe<List<Player>> { emptyList() }
 
 }
