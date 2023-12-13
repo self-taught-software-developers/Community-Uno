@@ -68,7 +68,7 @@ fun main() {
 
                     GameTableScreen(
                         modifier = Modifier.weight(1f),
-                        deck = hand,
+                        hand = state.deck.filter { it.ownerId == state.playerId },
                         onNewGame = {
                             scope.launch {
                                 koin.get<GetNewGameUseCase>().invoke()

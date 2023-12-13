@@ -6,6 +6,7 @@ enum class Collection {
 
 enum class Document {
     GameDeck,
+    GameDiscard,
     GameData,
     CurrentPlayer,
     ActivePlayers
