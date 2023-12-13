@@ -7,6 +7,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.CanvasBasedWindow
+import com.arkivanov.decompose.DefaultComponentContext
+import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.FirebaseOptions
 import dev.gitlive.firebase.initialize
@@ -15,7 +17,10 @@ import domain.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import model.CommunityUnoSession
+import navigation.DefaultRootComponent
+import navigation.RootComponent
 import org.jetbrains.skiko.wasm.onWasmReady
+import ui.App
 import ui.GameTableScreen
 
 private val koin = initKoin(enableNetworkLogs = true).koin
@@ -33,85 +38,12 @@ private val firebaseInit = Firebase.initialize(
 fun main() {
     firebaseInit
 
-    val session = koin.get<GetSessionUseCase>()
+    val lifecycle = LifecycleRegistry()
+    val root = DefaultRootComponent(componentContext = DefaultComponentContext(lifecycle))
 
     onWasmReady {
         CanvasBasedWindow(canvasElementId = "compose-canvas") {
-
-            val uiState by produceState<CommunityUnoSession?>(null) {
-                session.invoke().collectLatest { session ->
-                    value = session
-                }
-            }
-
-            uiState?.let { state ->
-                val useAbleDeck by remember(state) {
-                    derivedStateOf {
-                        state.deck.filter { it.ownerId == null }
-                    }
-                }
-                val hand by remember(state) {
-                    derivedStateOf {
-                        state.deck.filter { it.ownerId == state.id }
-                    }
-                }
-                val scope = rememberCoroutineScope()
-
-                Column {
-                    Text(state.id)
-                    Text("deck size: ${state.deck.size}")
-                    Text("usable deck size: ${useAbleDeck.size}")
-                    Text("hand size: ${hand.size}")
-                    Text("Player count: ${state.players.size}")
-                    Text("Current Player Id: ${state.playerId}")
-                    Text("Direction: ${state.isClockwise}")
-
-                    GameTableScreen(
-                        modifier = Modifier.weight(1f),
-                        deck = hand,
-                        onNewGame = {
-                            scope.launch {
-                                koin.get<GetNewGameUseCase>().invoke()
-                            }
-                        },
-                        onShuffle = {
-                            scope.launch {
-
-                            }
-                        },
-                        onDrawCard = {
-                            scope.launch {
-                                koin.get<GetCardFromDeckUseCase>().invoke(
-                                    state.id,
-                                    state.deck
-                                )
-                            }
-                        }
-                    )
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        Button(
-                            onClick = {
-                                scope.launch {
-                                    koin.get<SetGameDirectionUseCase>()
-                                        .invoke(state.isClockwise)
-                                }
-                            }
-                        ) {
-                            Text("Reverse")
-                        }
-                        Button(onClick = {
-                            scope.launch {
-                                koin.get<GetNextPlayerUseCase>()
-                                    .invoke(state.players, state.playerId, state.isClockwise)
-                            }
-                        }) {
-                            Text("Next")
-                        }
-
-                    }
-                }
-            }
-
+            App(root)
         }
     }
 }

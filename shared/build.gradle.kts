@@ -22,6 +22,9 @@ kotlin {
                 implementation(compose.components.resources)
                 implementation(libs.kotlinx.datetime)
 
+                api(libs.decompose)
+                implementation(libs.decompose.experimental)
+
                 api(libs.koin.core)
 
                 with(libs.gitlive) {

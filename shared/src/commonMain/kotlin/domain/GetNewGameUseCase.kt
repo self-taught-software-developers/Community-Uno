@@ -8,10 +8,9 @@ import org.koin.core.component.KoinComponent
 
 class GetNewGameUseCase(
     private val fireStore: FirebaseFirestore,
-    private val getDeck: GetDeckUseCase
 ) : KoinComponent {
     suspend operator fun invoke(
-        deck: List<Card> = getDeck.invoke()
+        deck: List<Card> = generateDeck()
     ) {
         val batch = fireStore.batch()
         val reference = fireStore

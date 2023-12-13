@@ -17,25 +17,34 @@ class GetSessionUseCase(
     private val direction: GetGameDirectionUseCase
 ) : KoinComponent {
     @OptIn(ExperimentalCoroutinesApi::class)
-    operator fun invoke() : Flow<CommunityUnoSession> =
-        authUseCase.invoke().flatMapConcat {id ->
-            combine(
-                deckOfCards.invoke(),
-                listOfPlayers.invoke(),
-                direction.invoke()
-            ) { deck, players, data ->
-                CommunityUnoSession(
-                    id = id,
-                    deck = deck,
-                    isClockwise = data.isClockwise,
-                    players = players,
-                    playerId = data.currentPlayer
-                )
-            }.onStart {
-                val player = Player(id = id, isActive = true, isAdmin = false)
-                firebase.collection(Collection.GameSession.name)
-                    .document(Document.ActivePlayers.name)
-                    .set(data = hashMapOf(id to player), merge = true)
-            }
-        }
+    operator fun invoke() : Flow<CommunityUnoSession> = flow {
+        emit(
+            CommunityUnoSession(
+                id = "testId",
+                deck = generateDeck(),
+                players = List(3) { Player("$it", true) },
+                playerId = "1"
+
+        ))
+    }
+//        authUseCase.invoke().flatMapConcat {id ->
+//            combine(
+//                deckOfCards.invoke(),
+//                listOfPlayers.invoke(),
+//                direction.invoke()
+//            ) { deck, players, data ->
+//                CommunityUnoSession(
+//                    id = id,
+//                    deck = deck,
+//                    isClockwise = data.isClockwise,
+//                    players = players,
+//                    playerId = data.currentPlayer
+//                )
+//            }.onStart {
+//                val player = Player(id = id, isActive = true, isAdmin = false)
+//                firebase.collection(Collection.GameSession.name)
+//                    .document(Document.ActivePlayers.name)
+//                    .set(data = hashMapOf(id to player), merge = true)
+//            }
+//        }
 }

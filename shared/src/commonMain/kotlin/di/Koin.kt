@@ -6,7 +6,6 @@ import dev.gitlive.firebase.firestore.firestore
 import domain.GetAuthenticationUseCase
 import domain.GetDeckOfCardsUseCase
 import domain.GetSessionUseCase
-import domain.GetDeckUseCase
 import domain.GetShuffleAndDealUseCase
 import domain.GetNewGameUseCase
 import domain.GetCardFromDeckUseCase
@@ -41,7 +40,6 @@ fun domainModule() = module {
     singleOf(::GetAuthenticationUseCase)
     singleOf(::GetDeckOfCardsUseCase)
     singleOf(::GetSessionUseCase)
-    singleOf(::GetDeckUseCase)
     singleOf(::GetShuffleAndDealUseCase)
     singleOf(::GetNewGameUseCase)
     singleOf(::GetCardFromDeckUseCase)
