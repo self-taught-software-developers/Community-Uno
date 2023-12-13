@@ -18,15 +18,12 @@ class GetCardFromDeckUseCase(
     ) {
 
         if (id.isNotBlank()) {
-            val drawnCard = deck.random()
-            val index = deck.indexOf(drawnCard)
-            val modifiedDeck: MutableList<Card> = deck.toMutableList()
-            modifiedDeck[index] = drawnCard.copy(ownerId = id)
+            val drawnCard = deck.random().copy(ownerId = id)
 
             fireStore
                 .collection(Collection.GameSession.name)
                 .document(Document.GameDeck.name)
-                .update(hashMapOf(Field.Deck.name to modifiedDeck))
+                .update(hashMapOf(drawnCard.uuid to drawnCard))
         }
     }
 }
