@@ -71,7 +71,7 @@ fun main() {
                         hand = state.deck.filter { it.ownerId == state.playerId },
                         onNewGame = {
                             scope.launch {
-                                koin.get<GetNewGameUseCase>().invoke()
+                                koin.get<GetNewGameUseCase>().invoke(players = state.players)
                             }
                         },
                         onShuffle = {

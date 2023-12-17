@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="GetCardFromDeckUseCase.kt updated for quality of life.">
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetGameDirectionUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNextPlayerUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/SetGameDirectionUseCase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Direction.kt" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="decompose experiments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/db/model/Keys.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayersUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayersUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Profile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Player.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +126,7 @@
       <recent name="C:\Users\Revok\IdeaProjects\Community-Uno\webApp" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserRun]">
+  <component name="RunManager" selected="Gradle.Community-Uno:webApp [jsBrowserDevelopmentRun]">
     <configuration name="Community-Uno [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -149,6 +139,28 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Community-Uno:webApp [jsBrowserDevelopmentRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/webApp" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jsBrowserDevelopmentRun" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -225,28 +237,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="main" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/shared" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jsBrowserDevelopmentRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -260,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserDevelopmentRun]" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserRun]" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserProductionWebpack]" />
         <item itemvalue="Gradle.Community-Uno:webApp [jsBrowserDistribution]" />
         <item itemvalue="Gradle.Community-Uno [build]" />
-        <item itemvalue="Gradle.main" />
       </list>
     </recent_temporary>
   </component>

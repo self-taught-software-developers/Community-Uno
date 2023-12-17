@@ -2,7 +2,6 @@ package domain
 
 import db.model.Collection
 import db.model.Document
-import dev.gitlive.firebase.firestore.DocumentReference
 import dev.gitlive.firebase.firestore.FirebaseFirestore
 import dev.gitlive.firebase.firestore.WriteBatch
 import model.Card
@@ -17,57 +16,43 @@ class GetNewGameUseCase(
         players: List<Player>,
         deck: List<Card> = getDeck.invoke()
     ) {
-        val batch = fireStore.batch()
-        batch.createANewDeck(deck, fireStore)
-        batch.dealAndStartGame(deck, fireStore)
+        fireStore.batch().apply {
 
-        val discardReference = fireStore
-            .collection(Collection.GameSession.name)
-            .document(Document.GameDiscard.name)
+            val sessionReference = fireStore.collection(Collection.GameSession.name)
+            val deckReference = sessionReference.document(Document.GameDeck.name).also(::delete)
+            val discardReference = sessionReference.document(Document.GameDiscard.name).also(::delete)
 
-        batch.delete(discardReference)
+            delete(deckReference)
+            delete(discardReference)
 
-        deck.forEach { card ->
-            batch.set(
-                documentRef = reference,
-                data = hashMapOf(card.uuid to card),
-                merge = true
-            )
-        }.also { batch.commit() }
+            val modifiedDeck = deck.dealCards(players)
+            val deckAfterDiscard = modifiedDeck.drop(1)
+            val discardCard = modifiedDeck.first()
+
+            set(documentRef = discardReference, data = discardCard, merge = true)
+
+            deckAfterDiscard.forEach { data ->
+                set(documentRef = deckReference, data = data, merge = true)
+            }
+        }.commit()
+
     }
 
 }
 
-fun WriteBatch.createANewDeck(deck: List<Card>, fireStore: FirebaseFirestore) {
-
-    val reference = fireStore
-        .collection(Collection.GameSession.name)
-        .document(Document.GameDeck.name)
-
-    delete(reference)
-    deck.forEach { card ->
-        set(
-            documentRef = reference,
-            data = hashMapOf(card.uuid to card),
-            merge = true
-        )
-    }
-}
-fun WriteBatch.dealAndStartGame(
-    deck: List<Card>,
+fun List<Card>.dealCards(
     players: List<Player>,
-    handSize: Int = 7,
-    fireStore: FirebaseFirestore
-) {
-    val discardReference = fireStore
-        .collection(Collection.GameSession.name)
-        .document(Document.GameDiscard.name)
+    handSize: Int = 7
+) : List<HashMap<String, Card>> {
+    return shuffled()
+        .chunked(handSize)
+        .mapIndexed { index, cards ->
+            val owner = players.getOrNull(index)
 
-    delete(discardReference)
-
-    val distributedDeck = deck.shuffled().chunked(size = handSize)
-
-
-
-
+            cards.map { card ->
+                card.copy(ownerId = owner?.id)
+            }
+        }.flatten().map { card ->
+            hashMapOf(card.uuid to card)
+        }
 }

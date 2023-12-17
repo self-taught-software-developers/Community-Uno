@@ -18,34 +18,24 @@ class GetSessionUseCase(
 ) : KoinComponent {
     @OptIn(ExperimentalCoroutinesApi::class)
     operator fun invoke() : Flow<CommunityUnoSession> =
-        flow {
-            emit(
+        authUseCase.invoke().flatMapConcat {id ->
+            combine(
+                deckOfCards.invoke(),
+                listOfPlayers.invoke(),
+                direction.invoke()
+            ) { deck, players, data ->
                 CommunityUnoSession(
-                    id = "testId",
-                    deck = GetDeckUseCase().invoke().map { it.copy(ownerId = "${(0..7).random()}") },
-                    players = List(7) { Player("$it") },
-                    playerId = "2"
+                    id = id,
+                    deck = deck,
+                    isClockwise = data.isClockwise,
+                    players = players,
+                    playerId = data.currentPlayer
                 )
-            )
+            }.onStart {
+                val player = Player(id = id, isAdmin = false)
+                firebase.collection(Collection.GameSession.name)
+                    .document(Document.ActivePlayers.name)
+                    .set(data = hashMapOf(id to player), merge = true)
+            }
         }
-//        authUseCase.invoke().flatMapConcat {id ->
-//            combine(
-//                deckOfCards.invoke(),
-//                listOfPlayers.invoke(),
-//                direction.invoke()
-//            ) { deck, players, data ->
-//                CommunityUnoSession(
-//                    id = id,
-//                    deck = deck,
-//                    isClockwise = data.isClockwise,
-//                    players = players,
-//                    playerId = data.currentPlayer
-//                )
-//            }.onStart {
-//                val player = Player(id = id, isActive = true, isAdmin = false)
-//                firebase.collection(Collection.GameSession.name)
-//                    .document(Document.ActivePlayers.name)
-//                    .set(data = hashMapOf(id to player), merge = true)
-//            }
-//        }
 }
