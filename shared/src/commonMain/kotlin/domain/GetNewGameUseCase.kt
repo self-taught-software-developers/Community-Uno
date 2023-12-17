@@ -5,6 +5,7 @@ import db.model.Document
 import dev.gitlive.firebase.firestore.FirebaseFirestore
 import dev.gitlive.firebase.firestore.WriteBatch
 import model.Card
+import model.CardType
 import model.Player
 import org.koin.core.component.KoinComponent
 
@@ -26,7 +27,11 @@ class GetNewGameUseCase(
             delete(discardReference)
 
             val modifiedDeck = deck.dealCards(players)
-            val discardCard = modifiedDeck.first { card -> card.ownerId == null }
+            val discardCard = modifiedDeck.first { card ->
+                card.ownerId == null &&
+                        card.type == CardType.Number
+
+            }
             val deckAfterDiscard = modifiedDeck
                 .filter { card -> card != discardCard }
                 .toData()
