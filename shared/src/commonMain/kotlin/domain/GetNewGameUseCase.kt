@@ -26,10 +26,13 @@ class GetNewGameUseCase(
             delete(discardReference)
 
             val modifiedDeck = deck.dealCards(players)
-            val deckAfterDiscard = modifiedDeck.drop(1)
-            val discardCard = modifiedDeck.first()
+            val discardCard = modifiedDeck.first { card -> card.ownerId == null }
+            val deckAfterDiscard = modifiedDeck
+                .filter { card -> card != discardCard }
+                .toData()
 
-            set(documentRef = discardReference, data = discardCard, merge = true)
+
+            set(documentRef = discardReference, data = discardCard.toData(), merge = true)
 
             deckAfterDiscard.forEach { data ->
                 set(documentRef = deckReference, data = data, merge = true)
@@ -43,7 +46,7 @@ class GetNewGameUseCase(
 fun List<Card>.dealCards(
     players: List<Player>,
     handSize: Int = 7
-) : List<HashMap<String, Card>> {
+) : List<Card> {
     return shuffled()
         .chunked(handSize)
         .mapIndexed { index, cards ->
@@ -52,7 +55,12 @@ fun List<Card>.dealCards(
             cards.map { card ->
                 card.copy(ownerId = owner?.id)
             }
-        }.flatten().map { card ->
-            hashMapOf(card.uuid to card)
-        }
+        }.flatten()
+}
+
+fun List<Card>.toData(): List<HashMap<String,Card>> {
+    return map { hashMapOf(it.uuid to it) }
+}
+fun Card.toData(): HashMap<String, Card> {
+    return hashMapOf(uuid to this)
 }
