@@ -3,21 +3,15 @@ package domain
 import model.Card
 import model.CardColor
 import model.CardType
-import model.getRandomString
-import org.koin.core.component.KoinComponent
 
-class GetDeckUseCase : KoinComponent {
-
-    //TODO FIX DECK ID GENERATION.
-    fun invoke(): List<Card> = listOf(
-        generateNumericCards(CardColor.RED),
-        generateNumericCards(CardColor.GREEN),
-        generateNumericCards(CardColor.BLUE),
-        generateNumericCards(CardColor.YELLOW),
-        generateSpecialCards()
-    ).flatten()
-
-}
+//TODO FIX DECK ID GENERATION.
+fun getDeck(): List<Card> = listOf(
+    generateNumericCards(CardColor.RED),
+    generateNumericCards(CardColor.GREEN),
+    generateNumericCards(CardColor.BLUE),
+    generateNumericCards(CardColor.YELLOW),
+    generateSpecialCards()
+).flatten().mapIndexed { index, card -> card.copy(key = index.toString()) }
 
 fun generateNumericCards(
     color: CardColor,

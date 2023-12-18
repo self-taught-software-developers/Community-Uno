@@ -9,13 +9,12 @@ import model.GameData
 import org.koin.core.component.KoinComponent
 
 class GetGameDirectionUseCase(
-    private val fireStore: FirebaseFirestore
+    private val store: FirebaseFirestore
 ): KoinComponent {
 
     //TODO READ IS FAILING
-    operator fun invoke(): Flow<GameData> = fireStore
+    operator fun invoke(): Flow<GameData> = store
         .collection(Collection.GameSession.name)
         .document(Document.GameData.name)
-//        .snapshots.map { it.data<GameDirection>() }
         .observe<GameData> { GameData() }
 }

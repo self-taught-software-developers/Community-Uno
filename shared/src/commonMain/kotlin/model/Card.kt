@@ -1,6 +1,7 @@
 package model
 
 import domain.generateNumericCards
+import kotlinx.datetime.Clock
 import kotlinx.datetime.internal.JSJoda.LocalDateTime
 import kotlinx.datetime.internal.JSJoda.ZoneId
 import kotlinx.datetime.internal.JSJoda.ZoneOffset
@@ -14,12 +15,6 @@ data class Card(
     val name: String = type.name,
     val color: CardColor,
     val ownerId: String? = null,
-    val uuid: String = getRandomString(12)
+    val key: String = "0",
+    val playedAt: Int = Clock.System.now().toEpochMilliseconds().toInt()
 )
-
-fun getRandomString(length: Int) : String {
-    val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
-    return (1..length)
-        .map { allowedChars.random() }
-        .joinToString("")
-}

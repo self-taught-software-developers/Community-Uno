@@ -11,9 +11,9 @@ import model.Card
 import org.koin.core.component.KoinComponent
 
 class GetDeckOfCardsUseCase(
-    private val fireStore: FirebaseFirestore
+    private val store: FirebaseFirestore
 ) : KoinComponent {
-    operator fun invoke(): Flow<List<Card>> = fireStore
+    operator fun invoke(): Flow<List<Card>> = store
         .collection(Collection.GameSession.name)
         .document(Document.GameDeck.name)
         .observe<List<Card>> { emptyList() }

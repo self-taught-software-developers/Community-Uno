@@ -32,7 +32,7 @@ fun GameTableScreen(
             contentAlignment = Alignment.Center
         ) {
             discard.forEach { card ->
-                val orientation by remember { mutableFloatStateOf((0..180).random().toFloat()) }
+                val orientation by remember { mutableFloatStateOf((-60..60).random().toFloat()) }
                 PlayingCard(
                     modifier = Modifier.rotate(orientation),
                     card = card

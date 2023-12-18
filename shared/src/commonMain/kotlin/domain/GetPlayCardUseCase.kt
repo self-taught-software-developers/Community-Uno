@@ -5,12 +5,12 @@ import db.model.Document
 import db.model.Field
 import dev.gitlive.firebase.firestore.FirebaseFirestore
 import dev.gitlive.firebase.firestore.externals.collection
+import kotlinx.datetime.Clock
 import model.Card
 import model.Player
 
 class GetPlayCardUseCase(
     private val fireStore: FirebaseFirestore,
-    private val nextPlayCardUseCase: GetNextPlayerUseCase
 ) {
 
     suspend operator fun invoke(
@@ -22,7 +22,7 @@ class GetPlayCardUseCase(
 
         fireStore.batch().apply {
 
-            val next = nextPlayCardUseCase.invoke(
+            val next = getNextPlayer(
                 players = players,
                 currentPlayerId = currentPlayerId,
                 gameDirection = gameDirection
@@ -42,11 +42,36 @@ class GetPlayCardUseCase(
 
             set(
                 documentRef = discardReference,
-                data = hashMapOf(card.uuid to card),
+                data = hashMapOf(card.key to card.copy(playedAt = Clock.System.now().toEpochMilliseconds().toInt())),
                 merge = true
             )
 
         }.commit()
 
+    }
+
+    companion object {
+        fun getNextPlayer(
+            players: List<Player>,
+            currentPlayerId: String?,
+            gameDirection: Boolean
+        ) : Player {
+
+            val currentPlayer = players.first { it.id == currentPlayerId }
+            val indexOfPlayer = players.indexOf(currentPlayer)
+
+            return if (gameDirection) {
+                val nextIndex = indexOfPlayer + 1
+                if (nextIndex > players.lastIndex) {
+                    players.first()
+                } else { players[nextIndex] }
+            } else {
+                val nextIndex = indexOfPlayer - 1
+                if (nextIndex < 0) {
+                    players.last()
+                } else { players[nextIndex] }
+            }
+
+        }
     }
 }

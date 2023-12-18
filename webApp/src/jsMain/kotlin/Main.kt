@@ -50,11 +50,7 @@ fun main() {
                         state.deck.filter { it.ownerId == null }
                     }
                 }
-                val hand by remember(state) {
-                    derivedStateOf {
-                        state.deck.filter { it.ownerId == state.id }
-                    }
-                }
+
                 val scope = rememberCoroutineScope()
 
                 Column {
@@ -62,7 +58,7 @@ fun main() {
                     Text("deck size: ${state.deck.size}")
                     Text("usable deck size: ${useAbleDeck.size}")
                     Text("discard size: ${state.discard.size}")
-                    Text("hand size: ${hand.size}")
+                    Text("hand size: ${state.hand.size}")
                     Text("Player count: ${state.players.size}")
                     Text("Current Player Id: ${state.playerId}")
                     Text("Direction: ${state.isClockwise}")
@@ -70,7 +66,7 @@ fun main() {
                     GameTableScreen(
                         modifier = Modifier.weight(1f),
                         discard = state.discard,
-                        hand = state.deck.filter { it.ownerId == state.id },
+                        hand = state.hand,
                         isPlayerTurn = state.playerId == state.id,
                         onPlayCard = { card ->
                             scope.launch {
@@ -114,8 +110,8 @@ fun main() {
                         }
                         Button(onClick = {
                             scope.launch {
-                                koin.get<GetNextPlayerUseCase>()
-                                    .invoke(state.players, state.playerId, state.isClockwise)
+//                                koin.get<GetNextPlayerUseCase>()
+//                                    .invoke(state.players, state.playerId, state.isClockwise)
                             }
                         }) {
                             Text("Next")
