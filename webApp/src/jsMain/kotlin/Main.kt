@@ -1,3 +1,4 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -53,7 +54,11 @@ fun main() {
 
                 val scope = rememberCoroutineScope()
 
-                Column {
+                Column(
+                    modifier = Modifier.background(
+                        color = state.globalColor()
+                    )
+                ) {
                     Text(state.id)
                     Text("deck size: ${state.deck.size}")
                     Text("usable deck size: ${useAbleDeck.size}")

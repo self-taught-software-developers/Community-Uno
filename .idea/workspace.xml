@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="discard pile implementation completed with player initiated discard and is now reflected in a players hand.&#10;&#10;when a player plays a card they shouldn't see it in their hand.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="new baseline reached.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetCardFromDeckUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayCardUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayCardUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -596,7 +593,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702930501577</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="discard pile implementation completed with player initiated drawing and is now reflected in a players hand.&#10;&#10;when a player draws a card they should see it in their hand.">
+      <option name="closed" value="true" />
+      <created>1702935167531</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1702935167531</updated>
+    </task>
+    <task id="LOCAL-00042" summary="new baseline reached.">
+      <option name="closed" value="true" />
+      <created>1702935946613</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1702935946613</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -611,8 +624,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Github pages deployment error resolution." />
-    <MESSAGE value="Firebase auth added to koin di" />
     <MESSAGE value="Firebase auth implementation complete with anonymous user uuid fetching." />
     <MESSAGE value="Firebase store implementation complete with read access for all users." />
     <MESSAGE value="models created for cards and game session." />
@@ -636,7 +647,9 @@
     <MESSAGE value="discard pile implementation completed in the ui" />
     <MESSAGE value="discard pile implementation completed with player initiated discard." />
     <MESSAGE value="discard pile implementation completed with player initiated discard and is now reflected in a players hand.&#10;&#10;when a player plays a card they shouldn't see it in their hand." />
-    <option name="LAST_COMMIT_MESSAGE" value="discard pile implementation completed with player initiated discard and is now reflected in a players hand.&#10;&#10;when a player plays a card they shouldn't see it in their hand." />
+    <MESSAGE value="discard pile implementation completed with player initiated drawing and is now reflected in a players hand.&#10;&#10;when a player draws a card they should see it in their hand." />
+    <MESSAGE value="new baseline reached." />
+    <option name="LAST_COMMIT_MESSAGE" value="new baseline reached." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
