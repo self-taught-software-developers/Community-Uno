@@ -10,7 +10,7 @@ import model.Card
 import model.Player
 
 class GetPlayCardUseCase(
-    private val fireStore: FirebaseFirestore,
+    private val store: FirebaseFirestore,
 ) {
 
     suspend operator fun invoke(
@@ -20,7 +20,7 @@ class GetPlayCardUseCase(
         gameDirection: Boolean
     ) {
 
-        fireStore.batch().apply {
+        store.batch().apply {
 
             val next = getNextPlayer(
                 players = players,
@@ -28,7 +28,7 @@ class GetPlayCardUseCase(
                 gameDirection = gameDirection
             )
 
-            val cPReference = fireStore.collection(Collection.GameSession.name)
+            val cPReference = store.collection(Collection.GameSession.name)
                 .document(Document.GameData.name)
 
             set(
@@ -37,7 +37,7 @@ class GetPlayCardUseCase(
                 merge = true
             )
 
-            val discardReference = fireStore.collection(Collection.GameSession.name)
+            val discardReference = store.collection(Collection.GameSession.name)
                 .document(Document.GameDiscard.name)
 
             set(

@@ -20,13 +20,15 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.*
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import dev.gitlive.firebase.firestore.externals.collection
 import model.Card
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun PlayingCard(
-    card: Card,
+    card: Card? = null,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     onClick: () -> Unit = { }
@@ -34,37 +36,69 @@ fun PlayingCard(
 
     Card(
         modifier = modifier
-            .size(width = 100.dp, height = 140.dp),
+            .size(width = 120.dp, height = 170.dp),
         shape = shapes.medium,
         onClick = onClick,
         enabled = enabled
     ) {
-        Box(
-            modifier = Modifier
-                .border(2.dp, Color.Black)
-                .padding(5.dp)
-                .border(2.dp, Color.Black)
-                .fillMaxSize()
-                .clip(shapes.medium)
-                .background(card.color.value)
-                .drawBehind {
-                    drawOval(
-                        color = Color.White,
-                        blendMode = BlendMode.Clear
-                    )
-                    drawOval(
-                        color = Color.Black,
-                        style = Stroke(width = 2f),
-                    )
-                },
-            contentAlignment = Alignment.Center,
-        ) {
-            Text(
-                modifier = Modifier.padding(5.dp),
-                text = card.name,
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.ExtraBold),
-            )
+        if (card != null) {
+            Box(
+                modifier = Modifier
+                    .border(2.dp, Color.Black)
+                    .padding(5.dp)
+                    .border(2.dp, Color.Black)
+                    .fillMaxSize()
+                    .clip(shapes.medium)
+                    .background(card.color.value)
+                    .drawBehind {
+                        drawOval(
+                            color = Color.White,
+                            blendMode = BlendMode.Clear
+                        )
+                        drawOval(
+                            color = Color.Black,
+                            style = Stroke(width = 2f),
+                        )
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    modifier = Modifier.padding(5.dp),
+                    text = card.name,
+                    style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.ExtraBold),
+                )
+            }
+        } else {
+            Box(
+                modifier = Modifier
+                    .border(2.dp, Color.Black)
+                    .padding(5.dp)
+                    .border(2.dp, Color.Black)
+                    .fillMaxSize()
+                    .clip(shapes.medium)
+                    .background(Color.Black)
+                    .drawBehind {
+                        drawOval(
+                            color = Color.Red,
+                            blendMode = BlendMode.Clear
+                        )
+//                        drawOval(
+//                            color = Color.White,
+//                            style = Stroke(width = 2f),
+//                        )
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    modifier = Modifier.padding(5.dp),
+                    text = "Community Uno",
+                    style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.ExtraBold),
+//                    color = Color.White,
+                    textAlign = TextAlign.Center
+                )
+            }
         }
+
     }
 
 }

@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.unit.dp
 import model.Card
 import ui.component.PlayingCard
 
@@ -27,16 +28,26 @@ fun GameTableScreen(
 ) {
     Column(modifier = modifier.fillMaxSize()){
 
-        Box(
-            modifier = Modifier.fillMaxSize().weight(1f, fill = true),
-            contentAlignment = Alignment.Center
+        Row(
+            modifier = Modifier.fillMaxSize().weight(1f).padding(paddingValues = PaddingValues(20.dp)),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            discard.forEach { card ->
-                val orientation by remember { mutableFloatStateOf((-60..60).random().toFloat()) }
-                PlayingCard(
-                    modifier = Modifier.rotate(orientation),
-                    card = card
-                )
+            Box(
+                modifier = Modifier
+                    .weight(1f),
+                contentAlignment = Alignment.Center
+            ) {
+                discard.forEach { card ->
+                    val orientation by remember { mutableFloatStateOf((-60..60).random().toFloat()) }
+                    PlayingCard(
+                        modifier = Modifier.rotate(orientation),
+                        card = card
+                    )
+                }
+            }
+            PlayingCard(modifier = Modifier, enabled = isPlayerTurn) {
+                onDrawCard()
             }
         }
 
@@ -73,9 +84,6 @@ fun gameMasterTableScreen(
         }
         Button(onClick = { onShuffleClick() }) {
             Text("Shuffle")
-        }
-        Button(onClick = { onDrawCardClick() }) {
-            Text("Draw")
         }
     }
 }

@@ -92,7 +92,10 @@ fun main() {
                             scope.launch {
                                 koin.get<GetCardFromDeckUseCase>().invoke(
                                     state.id,
-                                    state.deck
+                                    state.deck,
+                                    state.players,
+                                    state.playerId,
+                                    state.isClockwise
                                 )
                             }
                         }
