@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.MaterialTheme.shapes
 import androidx.compose.material.Text
@@ -22,16 +23,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import model.Card
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun PlayingCard(
     card: Card,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    onClick: () -> Unit = { }
 ) {
 
     Card(
         modifier = modifier
             .size(width = 100.dp, height = 140.dp),
-        shape = shapes.medium
+        shape = shapes.medium,
+        onClick = onClick,
+        enabled = enabled
     ) {
         Box(
             modifier = Modifier

@@ -70,7 +70,18 @@ fun main() {
                     GameTableScreen(
                         modifier = Modifier.weight(1f),
                         discard = state.discard,
-                        hand = state.deck.filter { it.ownerId == state.playerId },
+                        hand = state.deck.filter { it.ownerId == state.id },
+                        isPlayerTurn = state.playerId == state.id,
+                        onPlayCard = { card ->
+                            scope.launch {
+                                koin.get<GetPlayCardUseCase>().invoke(
+                                    card = card,
+                                    state.players,
+                                    state.playerId,
+                                    state.isClockwise
+                                )
+                            }
+                        },
                         onNewGame = {
                             scope.launch {
                                 koin.get<GetNewGameUseCase>().invoke(players = state.players)

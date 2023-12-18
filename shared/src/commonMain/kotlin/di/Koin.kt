@@ -15,6 +15,7 @@ import domain.GetGameDirectionUseCase
 import domain.GetPlayersUseCase
 import domain.GetNextPlayerUseCase
 import domain.GetDiscardUseCase
+import domain.GetPlayCardUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -51,4 +52,5 @@ fun domainModule() = module {
     singleOf(::GetGameDirectionUseCase)
     singleOf(::GetNextPlayerUseCase)
     singleOf(::GetDiscardUseCase)
+    singleOf(::GetPlayCardUseCase)
 }

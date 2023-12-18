@@ -36,7 +36,6 @@ class GetNewGameUseCase(
                 .filter { card -> card != discardCard }
                 .toData()
 
-
             set(documentRef = discardReference, data = discardCard.toData(), merge = true)
 
             deckAfterDiscard.forEach { data ->

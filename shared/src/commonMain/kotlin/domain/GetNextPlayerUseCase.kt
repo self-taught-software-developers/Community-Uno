@@ -10,16 +10,16 @@ import org.koin.core.component.KoinComponent
 class GetNextPlayerUseCase(
     private val fireStore: FirebaseFirestore
 ) : KoinComponent {
-    suspend operator fun invoke(
+    operator fun invoke(
         players: List<Player>,
         currentPlayerId: String?,
         gameDirection: Boolean
-    ) {
+    ) : Player {
 
         val currentPlayer = players.first { it.id == currentPlayerId }
         val indexOfPlayer = players.indexOf(currentPlayer)
 
-        val nextPlayer = if (gameDirection) {
+        return if (gameDirection) {
             val nextIndex = indexOfPlayer + 1
             if (nextIndex > players.lastIndex) {
                 players.first()
@@ -30,13 +30,6 @@ class GetNextPlayerUseCase(
                 players.last()
             } else { players[nextIndex] }
         }
-
-        fireStore
-            .collection(Collection.GameSession.name)
-            .document(Document.GameData.name).set(
-                data = hashMapOf(Field.CurrentPlayer.name to nextPlayer.id),
-                merge = true
-            )
 
     }
 }

@@ -17,34 +17,36 @@ import ui.component.PlayingCard
 @Composable
 fun GameTableScreen(
     modifier: Modifier,
+    isPlayerTurn: Boolean,
     discard: List<Card>,
     hand: List<Card>,
+    onPlayCard: (Card) -> Unit,
     onShuffle: () -> Unit,
     onNewGame: () -> Unit,
     onDrawCard: () -> Unit,
 ) {
     Column(modifier = modifier.fillMaxSize()){
 
-            Box(
-                modifier = Modifier.fillMaxSize().weight(1f, fill = true),
-                contentAlignment = Alignment.Center
-            ) {
-                discard.forEach { card ->
-                    val orientation by remember { mutableFloatStateOf((0..180).random().toFloat()) }
-                    PlayingCard(
-                        modifier = Modifier.rotate(orientation),
-                        card = card
-                    )
-                }
+        Box(
+            modifier = Modifier.fillMaxSize().weight(1f, fill = true),
+            contentAlignment = Alignment.Center
+        ) {
+            discard.forEach { card ->
+                val orientation by remember { mutableFloatStateOf((0..180).random().toFloat()) }
+                PlayingCard(
+                    modifier = Modifier.rotate(orientation),
+                    card = card
+                )
             }
+        }
 
-            FlowRow(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                hand.forEach { card ->
-                    PlayingCard(card)
-                }
+        FlowRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            hand.forEach { card ->
+                PlayingCard(card, enabled = isPlayerTurn) { onPlayCard(card) }
+            }
         }
 
         gameMasterTableScreen(
