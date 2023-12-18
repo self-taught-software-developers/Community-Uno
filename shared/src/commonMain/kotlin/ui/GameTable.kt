@@ -82,8 +82,5 @@ fun gameMasterTableScreen(
         Button(onClick = { onStartNewGameClick() }) {
             Text("New Game")
         }
-        Button(onClick = { onShuffleClick() }) {
-            Text("Shuffle")
-        }
     }
 }

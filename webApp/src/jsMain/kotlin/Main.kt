@@ -100,27 +100,6 @@ fun main() {
                             }
                         }
                     )
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        Button(
-                            onClick = {
-                                scope.launch {
-                                    koin.get<SetGameDirectionUseCase>()
-                                        .invoke(state.isClockwise)
-                                }
-                            }
-                        ) {
-                            Text("Reverse")
-                        }
-                        Button(onClick = {
-                            scope.launch {
-//                                koin.get<GetNextPlayerUseCase>()
-//                                    .invoke(state.players, state.playerId, state.isClockwise)
-                            }
-                        }) {
-                            Text("Next")
-                        }
-
-                    }
                 }
             }
 

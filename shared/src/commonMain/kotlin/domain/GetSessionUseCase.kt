@@ -19,7 +19,7 @@ class GetSessionUseCase(
     private val deckOfCards: GetDeckOfCardsUseCase,
     private val listOfPlayers: GetPlayersUseCase,
     private val discardPile: GetDiscardUseCase,
-    private val direction: GetGameDirectionUseCase
+    private val gameData: GetGameDirectionUseCase
 ) : KoinComponent {
     @OptIn(ExperimentalCoroutinesApi::class)
     operator fun invoke() : Flow<CommunityUnoSession> =
@@ -27,15 +27,13 @@ class GetSessionUseCase(
             combine(
                 deckOfCards.invoke(),
                 listOfPlayers.invoke(),
-                direction.invoke(),
+                gameData.invoke(),
                 discardPile.invoke()
             ) { deck, players, data, discard ->
 
                 val hand = deck.filter { card ->
                     card.ownerId == id && card.key !in discard.map { it.key }
                 }
-//                        it !in state.discard
-
                 CommunityUnoSession(
                     id = id,
                     discard = discard,

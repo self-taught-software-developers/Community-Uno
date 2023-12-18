@@ -12,7 +12,6 @@ class GetGameDirectionUseCase(
     private val store: FirebaseFirestore
 ): KoinComponent {
 
-    //TODO READ IS FAILING
     operator fun invoke(): Flow<GameData> = store
         .collection(Collection.GameSession.name)
         .document(Document.GameData.name)

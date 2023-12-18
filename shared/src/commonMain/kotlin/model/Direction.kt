@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class GameData(
-    @SerialName("IsClockWise")
+    @SerialName("GameDirection")
     val isClockwise: Boolean = true,
     @SerialName("CurrentPlayer")
     val currentPlayer: String? = null
