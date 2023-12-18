@@ -14,6 +14,7 @@ class GetSessionUseCase(
     private val authUseCase: GetAuthenticationUseCase,
     private val deckOfCards: GetDeckOfCardsUseCase,
     private val listOfPlayers: GetPlayersUseCase,
+    private val discardPile: GetDiscardUseCase,
     private val direction: GetGameDirectionUseCase
 ) : KoinComponent {
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -22,10 +23,12 @@ class GetSessionUseCase(
             combine(
                 deckOfCards.invoke(),
                 listOfPlayers.invoke(),
-                direction.invoke()
-            ) { deck, players, data ->
+                direction.invoke(),
+                discardPile.invoke()
+            ) { deck, players, data, discard ->
                 CommunityUnoSession(
                     id = id,
+                    discard = discard,
                     deck = deck,
                     isClockwise = data.isClockwise,
                     players = players,

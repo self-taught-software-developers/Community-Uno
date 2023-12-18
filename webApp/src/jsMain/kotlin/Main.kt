@@ -61,6 +61,7 @@ fun main() {
                     Text(state.id)
                     Text("deck size: ${state.deck.size}")
                     Text("usable deck size: ${useAbleDeck.size}")
+                    Text("discard size: ${state.discard.size}")
                     Text("hand size: ${hand.size}")
                     Text("Player count: ${state.players.size}")
                     Text("Current Player Id: ${state.playerId}")
@@ -68,6 +69,7 @@ fun main() {
 
                     GameTableScreen(
                         modifier = Modifier.weight(1f),
+                        discard = state.discard,
                         hand = state.deck.filter { it.ownerId == state.playerId },
                         onNewGame = {
                             scope.launch {

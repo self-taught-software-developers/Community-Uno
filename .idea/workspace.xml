@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="deal and discard pile implementation">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="deal and discard pile implementation&#10;first discard card will always be a numeric card.">
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetDiscardUseCase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetNewGameUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/di/Koin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayersUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetPlayersUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/domain/GetSessionUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/CommunityUnoSession.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -552,7 +559,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702777946085</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="deal and discard pile implementation&#10;first discard card no longer has the possibility of being a player card.">
+      <option name="closed" value="true" />
+      <created>1702778694177</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1702778694177</updated>
+    </task>
+    <task id="LOCAL-00037" summary="deal and discard pile implementation&#10;first discard card will always be a numeric card.">
+      <option name="closed" value="true" />
+      <created>1702778776793</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1702778776793</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -567,8 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created ui package and moved shared ui Main.kt to the ui package." />
-    <MESSAGE value="created domain package and created GetSessionUseCase.kt." />
     <MESSAGE value="created GetAuthenticationUseCase.kt" />
     <MESSAGE value="koin included for dependency management and injection." />
     <MESSAGE value="dependency management and injection test with a simple count to 100 implementation." />
@@ -592,7 +613,9 @@
     <MESSAGE value="a new observe function has been created within the Observe.kt file to streamline reusable code." />
     <MESSAGE value="GetCardFromDeckUseCase.kt updated for quality of life." />
     <MESSAGE value="deal and discard pile implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="deal and discard pile implementation" />
+    <MESSAGE value="deal and discard pile implementation&#10;first discard card no longer has the possibility of being a player card." />
+    <MESSAGE value="deal and discard pile implementation&#10;first discard card will always be a numeric card." />
+    <option name="LAST_COMMIT_MESSAGE" value="deal and discard pile implementation&#10;first discard card will always be a numeric card." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
