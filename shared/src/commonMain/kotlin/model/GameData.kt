@@ -6,7 +6,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class GameData(
     @SerialName("GameDirection")
-    val isClockwise: Boolean = true,
+    val gameDirection: GameDirection = GameDirection.CLOCKWISE,
     @SerialName("CurrentPlayer")
     val currentPlayer: String? = null
-)
+) {
+    fun isClockwise() : Boolean {
+        return gameDirection == GameDirection.CLOCKWISE
+    }
+}

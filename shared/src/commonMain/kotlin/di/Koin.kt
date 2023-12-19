@@ -7,12 +7,15 @@ import domain.GetAuthenticationUseCase
 import domain.GetDeckOfCardsUseCase
 import domain.GetSessionUseCase
 import domain.GetNewGameUseCase
-import domain.GetCardFromDeckUseCase
-import domain.SetGameDirectionUseCase
+import domain.DrawCardSingleUseCase
+import domain.PlayReverseGameDirectionUseCase
 import domain.GetGameDirectionUseCase
 import domain.GetPlayersUseCase
 import domain.GetDiscardUseCase
 import domain.GetPlayCardUseCase
+import domain.PlayDefaultCardUseCase
+import domain.PlayDrawCardMultipleUseCase
+import domain.PlaySkipPlayerUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -41,9 +44,12 @@ fun domainModule() = module {
     singleOf(::GetDeckOfCardsUseCase)
     singleOf(::GetSessionUseCase)
     singleOf(::GetNewGameUseCase)
-    singleOf(::GetCardFromDeckUseCase)
+    singleOf(::DrawCardSingleUseCase)
     singleOf(::GetPlayersUseCase)
-    singleOf(::SetGameDirectionUseCase)
+    singleOf(::PlayDefaultCardUseCase)
+    singleOf(::PlayDrawCardMultipleUseCase)
+    singleOf(::PlayReverseGameDirectionUseCase)
+    singleOf(::PlaySkipPlayerUseCase)
     singleOf(::GetGameDirectionUseCase)
     singleOf(::GetDiscardUseCase)
     singleOf(::GetPlayCardUseCase)

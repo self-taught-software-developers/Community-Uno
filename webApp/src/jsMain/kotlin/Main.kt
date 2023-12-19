@@ -1,12 +1,10 @@
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.CanvasBasedWindow
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.FirebaseOptions
@@ -18,6 +16,7 @@ import kotlinx.coroutines.launch
 import model.CommunityUnoSession
 import org.jetbrains.skiko.wasm.onWasmReady
 import ui.GameTableScreen
+import ui.component.PlayingCard
 
 private val koin = initKoin(enableNetworkLogs = true).koin
 private val firebaseInit = Firebase.initialize(
@@ -45,68 +44,83 @@ fun main() {
                 }
             }
 
-            uiState?.let { state ->
-                val useAbleDeck by remember(state) {
-                    derivedStateOf {
-                        state.deck.filter { it.ownerId == null }
-                    }
-                }
-
-                val scope = rememberCoroutineScope()
-
-                Column(
-                    modifier = Modifier.background(
-                        color = state.globalColor()
-                    )
-                ) {
-                    Text(state.id)
-                    Text("deck size: ${state.deck.size}")
-                    Text("usable deck size: ${useAbleDeck.size}")
-                    Text("discard size: ${state.discard.size}")
-                    Text("hand size: ${state.hand.size}")
-                    Text("Player count: ${state.players.size}")
-                    Text("Current Player Id: ${state.playerId}")
-                    Text("Direction: ${state.isClockwise}")
-
-                    GameTableScreen(
-                        modifier = Modifier.weight(1f),
-                        discard = state.discard,
-                        hand = state.hand,
-                        isPlayerTurn = state.playerId == state.id,
-                        onPlayCard = { card ->
-                            scope.launch {
-                                koin.get<GetPlayCardUseCase>().invoke(
-                                    card = card,
-                                    state.players,
-                                    state.playerId,
-                                    state.isClockwise
-                                )
-                            }
-                        },
-                        onNewGame = {
-                            scope.launch {
-                                koin.get<GetNewGameUseCase>().invoke(players = state.players)
-                            }
-                        },
-                        onShuffle = {
-                            scope.launch {
-
-                            }
-                        },
-                        onDrawCard = {
-                            scope.launch {
-                                koin.get<GetCardFromDeckUseCase>().invoke(
-                                    state.id,
-                                    state.deck,
-                                    state.players,
-                                    state.playerId,
-                                    state.isClockwise
-                                )
+            Scaffold(
+                bottomBar = {
+                    Column {
+                        Divider()
+                        BottomAppBar {
+                            Button(onClick = { }) {
+                                Text("New Game")
                             }
                         }
-                    )
+                    }
                 }
+            ) {
+                GameTableScreen(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(it),
+                    state = uiState
+                )
             }
+
+//            uiState?.let { state ->
+//                val useAbleDeck by remember(state) {
+//                    derivedStateOf {
+//                        state.deck.filter { it.ownerId == null }
+//                    }
+//                }
+//
+//                val scope = rememberCoroutineScope()
+//
+//                Column(
+//                    modifier = Modifier.background(
+//                        color = state.globalColor()
+//                    )
+//                ) {
+//                    Text(state.id)
+//                    Text("deck size: ${state.deck.size}")
+//                    Text("usable deck size: ${useAbleDeck.size}")
+//                    Text("discard size: ${state.discard.size}")
+//                    Text("hand size: ${state.hand.size}")
+//                    Text("Player count: ${state.players.size}")
+//                    Text("Current Player Id: ${state.playerId}")
+//                    Text("Direction: ${state.isClockwise}")
+//
+//                    GameTableScreen(
+//                        modifier = Modifier.weight(1f),
+//                        discard = state.discard,
+//                        hand = state.hand,
+//                        isPlayerTurn = state.playerId == state.id,
+//                        onPlayCard = { card ->
+//                            scope.launch {
+//                                koin.get<GetPlayCardUseCase>().invoke(
+//                                    card = card,
+//                                    state.players,
+//                                    state.playerId,
+//                                    state.isClockwise
+//                                )
+//                            }
+//                        },
+//                        onNewGame = {
+//                            scope.launch {
+//                                koin.get<GetNewGameUseCase>().invoke(players = state.players)
+//                            }
+//                        },
+//                        onDrawCard = {
+//                            scope.launch {
+//                                koin.get<GetCardFromDeckUseCase>().invoke(
+//                                    state.id,
+//                                    state.deck,
+//                                    state.players,
+//                                    state.playerId,
+//                                    state.isClockwise
+//                                )
+//                            }
+//                        }
+//                    )
+//                }
+//            }
 
         }
     }
