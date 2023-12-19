@@ -5,9 +5,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.onClick
-import androidx.compose.material.Badge
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
@@ -22,135 +20,144 @@ import model.CardType
 import model.CommunityUnoSession
 import ui.component.PlayingCard
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalLayoutApi::class, ExperimentalFoundationApi::class, ExperimentalMaterialApi::class)
 @Composable
 fun GameTableScreen(
     modifier: Modifier,
-    state: CommunityUnoSession?,
-    discard: List<Card> = emptyList(),
+    state: CommunityUnoSession,
     onSelectPlayer: (String) -> Unit = { },
     onPlayCard: (Card) -> Unit = { },
-    onNewGame: () -> Unit = { },
     onDrawCard: () -> Unit = { },
 ) {
-    state?.let {
+    Column(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text("Players")
 
-        Column(modifier = modifier.fillMaxSize()) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text("Players")
-
-                FlowRow(
-                    modifier = Modifier,
-                    verticalArrangement = Arrangement.spacedBy(10.dp),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    state.players.forEach { player ->
-                        val count by remember { derivedStateOf { state.deck.filter { it.ownerId == player.id }.size } }
-
-                        Box(
-                            modifier = Modifier.onClick { onSelectPlayer(player.id) },
-                            contentAlignment = Alignment.BottomEnd
-                        ) {
-
-                            Icon(
-                                modifier = Modifier.size(64.dp),
-                                imageVector = Icons.Default.Person,
-                                contentDescription = null
-                            )
-                            Badge(
-                                backgroundColor = if (state.isPlayersTurn(player.id)) {
-                                    Color.Green
-                                } else { Color.White }
-                            ) {
-                                Text(
-                                    modifier = Modifier.padding(5.dp),
-                                    text = "$count"
-                                )
-                            }
+            FlowRow(
+                modifier = Modifier,
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                state.players.forEach { player ->
+                    val count by remember(state.discard) {
+                        derivedStateOf {
+                            state.deck.filter {
+                                it.ownerId == player.id && it.key !in state.discard.map { it.key }
+                            }.size
                         }
-
                     }
+
+                    Box(
+                        modifier = Modifier.onClick { onSelectPlayer(player.id) },
+                        contentAlignment = Alignment.BottomEnd
+                    ) {
+
+                        Icon(
+                            modifier = Modifier.size(64.dp),
+                            imageVector = Icons.Default.Person,
+                            contentDescription = null
+                        )
+                        Badge(
+                            backgroundColor = if (state.isPlayersTurn(player.id)) {
+                                Color.Green
+                            } else { Color.White }
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(5.dp),
+                                text = "$count"
+                            )
+                        }
+                    }
+
                 }
             }
+        }
 
-            Row(modifier = Modifier.weight(2f)) {
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .weight(3f),
-                    contentAlignment = Alignment.Center
-                ) {
-                    state.discard.forEach { card ->
-                        val orientation by remember { mutableFloatStateOf((-60..60).random().toFloat()) }
-                        val placement by remember { mutableIntStateOf((1..5).random()) }
+        Row(modifier = Modifier.weight(2f)) {
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .weight(3f),
+                contentAlignment = Alignment.Center
+            ) {
+                state.discard.forEach { card ->
+                    val orientation by remember { mutableFloatStateOf((-60..60).random().toFloat()) }
+                    val placement by remember { mutableIntStateOf((1..5).random()) }
 
-                        PlayingCard(
-                            modifier = Modifier
-                                .rotate(orientation)
-                                .offset(x = placement.dp, placement.dp),
-                            card = card,
-                            enabled = false
-                        )
-                    }
-                }
-
-                Column(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Box(modifier = Modifier.onClick { onDrawCard() }) {
-                        state.deck.forEachIndexed { index, card ->
-                            PlayingCard(modifier = Modifier.offset(x = (index * 0.1).dp, y = (index * 0.1).dp)) {
-
-                            }
-                        }
-                    }
-                    Text("click to draw")
+                    PlayingCard(
+                        modifier = Modifier
+                            .rotate(orientation)
+                            .offset(x = placement.dp, placement.dp),
+                        card = card,
+                        enabled = false
+                    )
                 }
             }
 
             Column(
                 modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(10.dp)
+                verticalArrangement = Arrangement.spacedBy(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                var wildCard by remember(state.hand) { mutableStateOf<Card?>(null) }
-                val showColor by remember { derivedStateOf { wildCard != null } }
-
-                AnimatedVisibility(showColor) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        CardColor.entries.filter { it != CardColor.BLACK }.forEach { color ->
-                            Box(modifier = Modifier.size(100.dp).background(color.value).onClick {
-                                onPlayCard(wildCard!!.copy(color = color))
-                            })
+                Box(modifier = Modifier.onClick { onDrawCard() }) {
+                    state.deck.forEachIndexed { index, card ->
+                        PlayingCard(modifier = Modifier.offset(x = (index * 0.1).dp, y = (index * 0.1).dp)) {
+                            if (state.isPlayersTurn()) { onDrawCard() }
                         }
                     }
                 }
+                Text("click to draw")
+            }
+        }
 
-                FlowRow(
+        Column(
+            modifier = Modifier.weight(2f),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            var wildCard by remember(state) { mutableStateOf<Card?>(null) }
+            val showColor by remember(wildCard) { derivedStateOf { wildCard != null } }
+
+            AnimatedVisibility(showColor) {
+                Row(
                     modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    state.hand.forEach { card ->
-                        PlayingCard(card) {
-                            when (card.type) {
-                                CardType.Wild, CardType.Draw4 -> {
-                                    wildCard = card
-                                }
+                    CardColor.entries.filter { it != CardColor.BLACK }.forEach { color ->
+                        Surface(
+                            modifier = Modifier.size(100.dp),
+                            color = (color.value),
+                            onClick = {
+                                onPlayCard(wildCard!!.copy(color = color))
+                            }
+                        ) {  }
+                    }
+                }
+            }
 
-                                else -> {
-                                    onPlayCard(card)
-                                }
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                state.hand.forEach { card ->
+                    PlayingCard(
+                        card = card,
+                        enabled = state.isPlayersTurn() && (card.color == state.globalColor() || card.type == CardType.Wild || card.type == CardType.Draw4)
+                    ) {
+
+                        when (card.type) {
+                            CardType.Wild, CardType.Draw4 -> {
+                                wildCard = card
+                            }
+
+                            else -> {
+                                onPlayCard(card)
                             }
                         }
                     }
                 }
             }
-
         }
+
     }
 }

@@ -44,25 +44,70 @@ fun main() {
                 }
             }
 
-            Scaffold(
-                bottomBar = {
-                    Column {
-                        Divider()
-                        BottomAppBar {
-                            Button(onClick = { }) {
-                                Text("New Game")
+            val scope = rememberCoroutineScope()
+
+            uiState?.let { state ->
+                Scaffold(
+                    bottomBar = {
+                        Column {
+                            Divider()
+                            BottomAppBar {
+                                if (state.player().isAdmin) {
+                                    Button(onClick = {
+                                        scope.launch {
+                                            koin.get<GetNewGameUseCase>().invoke(players = state.players)
+                                        }
+                                    }) {
+                                        Text("New Game")
+                                    }
+
+                                    Button(onClick = {
+                                        scope.launch {
+                                            koin.get<GetNextPlayerUseCase>().invoke(
+                                                currentPlayer = state.currentPlayer(),
+                                                direction = state.gameDirection,
+                                                players = state.players,
+                                            )
+                                        }
+                                    }) {
+                                        Text("Next Player")
+                                    }
+                                }
                             }
                         }
                     }
+                ) {
+                    GameTableScreen(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(it),
+                        state = state,
+                        onPlayCard = { card ->
+                            scope.launch {
+                                koin.get<GetPlayCardUseCase>().invoke(
+                                    card = card,
+                                    currentPlayer = state.currentPlayer(),
+                                    deck = state.deck,
+                                    direction = state.gameDirection,
+                                    players = state.players
+                                )
+                            }
+                        },
+                        onDrawCard = {
+                            scope.launch {
+                                koin.get<DrawCardSingleUseCase>().invoke(
+                                    currentPlayer = state.currentPlayer(),
+                                    deck = state.deck,
+                                    direction = state.gameDirection,
+                                    players = state.players,
+                                    playerId = state.playerId
+                                )
+                            }
+                        }
+                    )
                 }
-            ) {
-                GameTableScreen(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(it),
-                    state = uiState
-                )
             }
+
 
 //            uiState?.let { state ->
 //                val useAbleDeck by remember(state) {
