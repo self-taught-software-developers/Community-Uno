@@ -1,4 +1,3 @@
-
 name: Build and Publish
 on:
   push:
@@ -15,6 +14,9 @@ jobs:
     steps:
       - name: Fetch Sources
         uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -35,10 +37,18 @@ jobs:
 #        run: ./gradlew :webApp:jsBrowserDistribution
         run: ./gradlew :webApp:jsBrowserWebpack
 
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           path: webApp/build/dist/js/productionExecutable
-
+          
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        # uses: actions/deploy-pages@v4
         uses: actions/deploy-pages@master
