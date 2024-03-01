@@ -2,16 +2,16 @@ name: Build and Publish
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+
+permissions:
+  pages: write      # to deploy to Pages
+  id-token: write   # to verify the deployment originates from an appropriate source
+  actions: read     # to download an artifact uploaded by `actions/upload-pages-artifact@v3`
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      pages: write
-      id-token: write
-    
+
     steps:
       - name: Fetch Sources
         uses: actions/checkout@v3
@@ -35,7 +35,7 @@ jobs:
 #        run: ./gradlew :webApp:jsBrowserDistribution
         run: ./gradlew :webApp:jsBrowserWebpack
 
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: webApp/build/dist/js/productionExecutable
 
