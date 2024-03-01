@@ -37,7 +37,7 @@ jobs:
         run: ./gradlew :webApp:jsBrowserWebpack
 
       - name: Upload website artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v1
         with:
           name: github-pages
           path: webApp/build/dist/js/productionExecutable
