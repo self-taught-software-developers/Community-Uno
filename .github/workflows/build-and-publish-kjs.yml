@@ -6,17 +6,17 @@ on:
 permissions:
     pages: write
     id-token: write
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     
     steps:
       - name: Fetch Sources
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/checkout@v3
       
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -32,15 +32,16 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: check
-          
-      - name: Build Kotlin/JS project
+
+      - name: Assemble with Gradle
+#        run: ./gradlew :webApp:jsBrowserDistribution
         run: ./gradlew :webApp:jsBrowserWebpack
-      
-      - name: Upload website artifacts
-        uses: actions/upload-artifact@v4
+
+      - uses: actions/upload-pages-artifact@v1
         with:
           name: github-pages
           path: webApp/build/dist/js/productionExecutable
-          
+
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@master
