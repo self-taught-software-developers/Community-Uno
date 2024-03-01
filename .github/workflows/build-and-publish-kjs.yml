@@ -2,7 +2,7 @@ name: Build and Publish
 on:
   push:
     branches: [ master ]
-
+    
 permissions:
     pages: write
     id-token: write
@@ -30,15 +30,16 @@ jobs:
 
       - name: Distribution
         uses: gradle/gradle-build-action@v2
-
+        with:
+          arguments: check
+          
       - name: Build Kotlin/JS project
-#        run: ./gradlew :webApp:jsBrowserDistribution
         run: ./gradlew :webApp:jsBrowserWebpack
       
       - name: Upload website artifacts
-      - uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
-          # name: github-pages
+          name: github-pages
           path: webApp/build/dist/js/productionExecutable
           
       - name: Deploy to GitHub Pages
