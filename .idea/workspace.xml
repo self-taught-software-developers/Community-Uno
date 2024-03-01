@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="baseline action fix.">
-      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/GameSession.kt" afterDir="false" />
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. GameSession.kt has been added to replace CommunityUnoSession.kt. This change allows for a better data structure once caching has been implemented in the form of a local db and firebase.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/model/Card.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +46,20 @@
       <list>
         <option value="HTML File" />
         <option value="Kotlin File" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin Enum" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -68,7 +71,7 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="c8be53a2-f144-4a93-b7db-6bbbc508d976" />
-        <option name="url" value="https://github.com/cerver1/Community-Uno.git" />
+        <option name="url" value="https://github.com/self-taught-software-developers/Community-Uno.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -102,7 +105,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;db03ae61&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Revok/IdeaProjects/Community-Uno/docs&quot;,
@@ -594,39 +597,7 @@
       <option name="project" value="LOCAL" />
       <updated>1702930501577</updated>
     </task>
-    <task id="LOCAL-00041" summary="discard pile implementation completed with player initiated drawing and is now reflected in a players hand.&#10;&#10;when a player draws a card they should see it in their hand.">
-      <option name="closed" value="true" />
-      <created>1702935167531</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1702935167531</updated>
-    </task>
-    <task id="LOCAL-00042" summary="new baseline reached.">
-      <option name="closed" value="true" />
-      <created>1702935946613</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1702935946613</updated>
-    </task>
-    <task id="LOCAL-00043" summary="global color implemented.">
-      <option name="closed" value="true" />
-      <created>1702942680274</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1702942680274</updated>
-    </task>
-    <task id="LOCAL-00044" summary="baseline 12.19.01">
-      <option name="closed" value="true" />
-      <created>1703028950209</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1703028950209</updated>
-    </task>
-    <option name="localTasksCounter" value="45" />
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -641,6 +612,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Github pages deployment error resolution." />
+    <MESSAGE value="Firebase auth added to koin di" />
+    <MESSAGE value="Firebase auth implementation complete with anonymous user uuid fetching." />
+    <MESSAGE value="Firebase store implementation complete with read access for all users." />
     <MESSAGE value="models created for cards and game session." />
     <MESSAGE value="use cases and keys created for game and db management." />
     <MESSAGE value="ui components created as a rough draft." />
@@ -662,11 +637,7 @@
     <MESSAGE value="discard pile implementation completed in the ui" />
     <MESSAGE value="discard pile implementation completed with player initiated discard." />
     <MESSAGE value="discard pile implementation completed with player initiated discard and is now reflected in a players hand.&#10;&#10;when a player plays a card they shouldn't see it in their hand." />
-    <MESSAGE value="discard pile implementation completed with player initiated drawing and is now reflected in a players hand.&#10;&#10;when a player draws a card they should see it in their hand." />
-    <MESSAGE value="new baseline reached." />
-    <MESSAGE value="global color implemented." />
-    <MESSAGE value="baseline 12.19.01" />
-    <option name="LAST_COMMIT_MESSAGE" value="baseline 12.19.01" />
+    <option name="LAST_COMMIT_MESSAGE" value="discard pile implementation completed with player initiated discard and is now reflected in a players hand.&#10;&#10;when a player plays a card they shouldn't see it in their hand." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
