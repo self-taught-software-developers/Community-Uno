@@ -2,6 +2,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -33,140 +34,11 @@ private val firebaseInit = Firebase.initialize(
 fun main() {
     firebaseInit
 
-    val session = koin.get<GetSessionUseCase>()
-
     onWasmReady {
         CanvasBasedWindow(canvasElementId = "compose-canvas") {
-
-            val uiState by produceState<CommunityUnoSession?>(null) {
-                session.invoke().collectLatest { session ->
-                    value = session
-                }
+            Box(Modifier.fillMaxSize(), Alignment.Center) {
+                Text("Hello, world!")
             }
-
-            val scope = rememberCoroutineScope()
-
-            uiState?.let { state ->
-                Scaffold(
-                    bottomBar = {
-                        Column {
-                            Divider()
-                            BottomAppBar {
-                                if (state.player().isAdmin) {
-                                    Button(onClick = {
-                                        scope.launch {
-                                            koin.get<GetNewGameUseCase>().invoke(players = state.players)
-                                        }
-                                    }) {
-                                        Text("New Game")
-                                    }
-
-                                    Button(onClick = {
-                                        scope.launch {
-                                            koin.get<GetNextPlayerUseCase>().invoke(
-                                                currentPlayer = state.currentPlayer(),
-                                                direction = state.gameDirection,
-                                                players = state.players,
-                                            )
-                                        }
-                                    }) {
-                                        Text("Next Player")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ) {
-                    GameTableScreen(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(it),
-                        state = state,
-                        onPlayCard = { card ->
-                            scope.launch {
-                                koin.get<GetPlayCardUseCase>().invoke(
-                                    card = card,
-                                    currentPlayer = state.currentPlayer(),
-                                    deck = state.deck,
-                                    direction = state.gameDirection,
-                                    players = state.players
-                                )
-                            }
-                        },
-                        onDrawCard = {
-                            scope.launch {
-                                koin.get<DrawCardSingleUseCase>().invoke(
-                                    currentPlayer = state.currentPlayer(),
-                                    deck = state.deck,
-                                    direction = state.gameDirection,
-                                    players = state.players,
-                                    playerId = state.playerId
-                                )
-                            }
-                        }
-                    )
-                }
-            }
-
-
-//            uiState?.let { state ->
-//                val useAbleDeck by remember(state) {
-//                    derivedStateOf {
-//                        state.deck.filter { it.ownerId == null }
-//                    }
-//                }
-//
-//                val scope = rememberCoroutineScope()
-//
-//                Column(
-//                    modifier = Modifier.background(
-//                        color = state.globalColor()
-//                    )
-//                ) {
-//                    Text(state.id)
-//                    Text("deck size: ${state.deck.size}")
-//                    Text("usable deck size: ${useAbleDeck.size}")
-//                    Text("discard size: ${state.discard.size}")
-//                    Text("hand size: ${state.hand.size}")
-//                    Text("Player count: ${state.players.size}")
-//                    Text("Current Player Id: ${state.playerId}")
-//                    Text("Direction: ${state.isClockwise}")
-//
-//                    GameTableScreen(
-//                        modifier = Modifier.weight(1f),
-//                        discard = state.discard,
-//                        hand = state.hand,
-//                        isPlayerTurn = state.playerId == state.id,
-//                        onPlayCard = { card ->
-//                            scope.launch {
-//                                koin.get<GetPlayCardUseCase>().invoke(
-//                                    card = card,
-//                                    state.players,
-//                                    state.playerId,
-//                                    state.isClockwise
-//                                )
-//                            }
-//                        },
-//                        onNewGame = {
-//                            scope.launch {
-//                                koin.get<GetNewGameUseCase>().invoke(players = state.players)
-//                            }
-//                        },
-//                        onDrawCard = {
-//                            scope.launch {
-//                                koin.get<GetCardFromDeckUseCase>().invoke(
-//                                    state.id,
-//                                    state.deck,
-//                                    state.players,
-//                                    state.playerId,
-//                                    state.isClockwise
-//                                )
-//                            }
-//                        }
-//                    )
-//                }
-//            }
-
         }
     }
 }
