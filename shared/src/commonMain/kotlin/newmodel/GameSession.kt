@@ -10,6 +10,6 @@ sealed interface GameSession {
         val cardList: List<Card.Entity>,
         val gameBoardDirection: GameBoardDirection,
         val gameState: GameState
-    )
+    ) : GameSession
 
 }
