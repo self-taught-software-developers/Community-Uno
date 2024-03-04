@@ -1,8 +1,8 @@
 [versions]
 kotlin_version = "1.9.20"
 kmp_version = "1.9.20"
-compose_kmp_version = "1.5.11"
-git_live_firebase_version = "1.10.4"
+compose_kmp_version = "1.6.0"
+git_live_firebase_version = "1.11.1"
 koin_version = "3.2.0"
 kotlinx_datetime_version = "0.5.0"
 
