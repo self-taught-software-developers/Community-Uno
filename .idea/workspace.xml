@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. GameSession.kt added. This class provides a high level view of the game.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. extended icons added to provide access to block and loop icons to be used as skip and reverse markers.">
       <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/Card.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/GameBoardDirection.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/GameState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/Player.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/GameSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/GameSession.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -610,7 +611,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709583430036</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="2024 revision in preparation for project showcase on 3/13/2024. GameSession.kt added. This class provides a high level view of the game.">
+      <option name="closed" value="true" />
+      <created>1709584060588</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709584060588</updated>
+    </task>
+    <task id="LOCAL-00043" summary="2024 revision in preparation for project showcase on 3/13/2024. extended icons added to provide access to block and loop icons to be used as skip and reverse markers.">
+      <option name="closed" value="true" />
+      <created>1709585429489</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1709585429489</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -625,7 +642,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Firebase auth added to koin di" />
     <MESSAGE value="Firebase auth implementation complete with anonymous user uuid fetching." />
     <MESSAGE value="Firebase store implementation complete with read access for all users." />
     <MESSAGE value="models created for cards and game session." />
@@ -650,7 +666,8 @@
     <MESSAGE value="discard pile implementation completed with player initiated discard." />
     <MESSAGE value="discard pile implementation completed with player initiated discard and is now reflected in a players hand.&#10;&#10;when a player plays a card they shouldn't see it in their hand." />
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. GameSession.kt added. This class provides a high level view of the game." />
-    <option name="LAST_COMMIT_MESSAGE" value="2024 revision in preparation for project showcase on 3/13/2024. GameSession.kt added. This class provides a high level view of the game." />
+    <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. extended icons added to provide access to block and loop icons to be used as skip and reverse markers." />
+    <option name="LAST_COMMIT_MESSAGE" value="2024 revision in preparation for project showcase on 3/13/2024. extended icons added to provide access to block and loop icons to be used as skip and reverse markers." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
