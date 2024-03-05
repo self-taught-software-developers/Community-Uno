@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. GameState.kt added.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. Baseline screen.">
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/mock/CardMock.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/mock/PlayerMock.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTableLayout.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-js-store/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-js-store/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/Player.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/Player.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/StyleGuide.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/StyleGuide.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/jsMain/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/jsMain/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +55,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Kotlin File" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Enum" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -280,14 +288,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700492151870</updated>
-    </task>
-    <task id="LOCAL-00001" summary="baseline reached.">
-      <option name="closed" value="true" />
-      <created>1700598722637</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1700598722637</updated>
     </task>
     <task id="LOCAL-00002" summary="webApp title changed from &quot;Title&quot; to &quot;Community Uno&quot;.">
       <option name="closed" value="true" />
@@ -673,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709585951127</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="2024 revision in preparation for project showcase on 3/13/2024. Baseline screen.">
+      <option name="closed" value="true" />
+      <created>1709587569010</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1709587569010</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -688,7 +696,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="phase draft" />
     <MESSAGE value="player data implementation started." />
     <MESSAGE value="migration back to github actions for build and publication of site." />
     <MESSAGE value="assemble with gradle added to GitHub Action with jsBrowserDistribution." />
@@ -713,7 +720,8 @@
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. Card.kt added." />
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. GameBoardDirection.kt added." />
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. GameState.kt added." />
-    <option name="LAST_COMMIT_MESSAGE" value="2024 revision in preparation for project showcase on 3/13/2024. GameState.kt added." />
+    <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. Baseline screen." />
+    <option name="LAST_COMMIT_MESSAGE" value="2024 revision in preparation for project showcase on 3/13/2024. Baseline screen." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

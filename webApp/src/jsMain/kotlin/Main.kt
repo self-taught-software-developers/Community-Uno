@@ -15,7 +15,13 @@ import domain.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import model.CommunityUnoSession
+import newmodel.Card
+import newmodel.Player
+import newmodel.mock.cardUiListMock
+import newmodel.mock.playerUiListMock
+import newmodel.mock.playerUiMock
 import org.jetbrains.skiko.wasm.onWasmReady
+import ui.GameTableLayout
 import ui.GameTableScreen
 import ui.component.PlayingCard
 
@@ -36,9 +42,12 @@ fun main() {
 
     onWasmReady {
         CanvasBasedWindow(canvasElementId = "compose-canvas") {
-            Box(Modifier.fillMaxSize(), Alignment.Center) {
-                Text("Hello, world!")
-            }
+            GameTableLayout(
+                activePlayer = playerUiMock(),
+                otherPlayerList = playerUiListMock(),
+                discardPileList = cardUiListMock(),
+                drawPileList = cardUiListMock()
+            )
         }
     }
 }

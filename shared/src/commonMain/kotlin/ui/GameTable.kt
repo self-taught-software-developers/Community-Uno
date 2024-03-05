@@ -84,13 +84,13 @@ fun GameTableScreen(
                     val orientation by remember { mutableFloatStateOf((-60..60).random().toFloat()) }
                     val placement by remember { mutableIntStateOf((1..5).random()) }
 
-                    PlayingCard(
-                        modifier = Modifier
-                            .rotate(orientation)
-                            .offset(x = placement.dp, placement.dp),
-                        card = card,
-                        enabled = false
-                    )
+//                    PlayingCard(
+//                        modifier = Modifier
+//                            .rotate(orientation)
+//                            .offset(x = placement.dp, placement.dp),
+//                        card = card,
+//                        enabled = false
+//                    )
                 }
             }
 
@@ -101,9 +101,9 @@ fun GameTableScreen(
             ) {
                 Box(modifier = Modifier.onClick { onDrawCard() }) {
                     state.deck.forEachIndexed { index, card ->
-                        PlayingCard(modifier = Modifier.offset(x = (index * 0.1).dp, y = (index * 0.1).dp)) {
-                            if (state.isPlayersTurn()) { onDrawCard() }
-                        }
+//                        PlayingCard(modifier = Modifier.offset(x = (index * 0.1).dp, y = (index * 0.1).dp)) {
+//                            if (state.isPlayersTurn()) { onDrawCard() }
+//                        }
                     }
                 }
                 Text("click to draw")
@@ -140,21 +140,21 @@ fun GameTableScreen(
                 horizontalArrangement = Arrangement.Center
             ) {
                 state.hand.forEach { card ->
-                    PlayingCard(
-                        card = card,
-                        enabled = state.isPlayersTurn() && (card.color == state.globalColor() || card.type == CardType.Wild || card.type == CardType.Draw4)
-                    ) {
-
-                        when (card.type) {
-                            CardType.Wild, CardType.Draw4 -> {
-                                wildCard = card
-                            }
-
-                            else -> {
-                                onPlayCard(card)
-                            }
-                        }
-                    }
+//                    PlayingCard(
+//                        card = card,
+//                        enabled = state.isPlayersTurn() && (card.color == state.globalColor() || card.type == CardType.Wild || card.type == CardType.Draw4)
+//                    ) {
+//
+//                        when (card.type) {
+//                            CardType.Wild, CardType.Draw4 -> {
+//                                wildCard = card
+//                            }
+//
+//                            else -> {
+//                                onPlayCard(card)
+//                            }
+//                        }
+//                    }
                 }
             }
         }
