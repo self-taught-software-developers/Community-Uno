@@ -25,6 +25,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun GameTableLayout(
     activePlayer: Player.UI?,
@@ -38,25 +39,24 @@ fun GameTableLayout(
         modifier = modifier
             .fillMaxSize()
             .padding(StyleGuide.xPadding.value),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        StarLayout(
-            modifier = Modifier.weight(3f),
-            radius = 300.dp
-        ) {
-//            otherPlayerList.drop(1).forEachIndexed { index, player ->
-//                PlayerHandLayout(
-//                    player = player
-//                )
-//            }
-        }
 
+        DiscardPileLayout(
+            modifier = Modifier,
+            discardPile = discardPileList
+        )
+        DrawPileLayout(
+            modifier = Modifier,
+            drawPile = discardPileList,
+            canDraw = activePlayer != null
+        )
         if (activePlayer != null) {
 
             PlayerHandLayout(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.fillMaxWidth(),
                 player = activePlayer,
                 isActivePlayer = true
             )
@@ -109,6 +109,64 @@ fun PlayerHandLayout(
                 card = if (isActivePlayer) {
                     card
                 } else null
+            )
+        }
+    }
+
+}
+
+@Composable
+fun DrawPileLayout(
+    drawPile: List<Card.Entity>,
+    modifier: Modifier = Modifier,
+    canDraw: Boolean = false,
+    angle: Float = 5f
+) {
+
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center
+    ) {
+        drawPile.forEachIndexed { index, card ->
+            val cardAngle by remember {
+                derivedStateOf {
+                    (-angle / 2 + angle / (drawPile.count() + 1) * index)
+                }
+            }
+            PlayingCard(
+                modifier = Modifier.graphicsLayer {
+                    translationX = cardAngle
+                    translationY = cardAngle
+                },
+                enabled = canDraw,
+                card = null
+            )
+        }
+    }
+
+}
+
+@Composable
+fun DiscardPileLayout(
+    discardPile: List<Card.Entity>,
+    modifier: Modifier = Modifier,
+    angle: Float = 25f
+) {
+
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center
+    ) {
+        discardPile.indices.forEach { index ->
+            val cardAngle by remember {
+                derivedStateOf {
+                    (-angle / 2 + angle / (discardPile.count() + 1) * index) + (1..100).random()
+                }
+            }
+            PlayingCard(
+                modifier = Modifier.rotate(cardAngle),
+                enabled = false,
+                card = null
             )
         }
     }
