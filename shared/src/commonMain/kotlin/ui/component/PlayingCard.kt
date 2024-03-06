@@ -1,5 +1,6 @@
 package ui.component
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -22,6 +23,7 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.*
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -36,17 +38,17 @@ fun PlayingCard(
     modifier: Modifier = Modifier,
     shape: Shape = RoundedCornerShape(10),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    borderWidth: Dp = 1.dp,
-    borderColor: Color = Color.Black,
     enabled: Boolean = true,
     onClick: () -> Unit = { }
 ) {
 
+    val stroke = with(LocalDensity.current) { 8.dp.toPx() }
+
     Card(
         modifier = modifier.size(
-            width = 120.dp,
-            height = 170.dp
-        ).border(borderWidth, borderColor, shape = shape),
+            width = 100.dp,
+            height = 140.dp
+        ).playingCardDivider(),
         shape = shape,
         onClick = onClick,
         enabled = enabled,
@@ -57,28 +59,22 @@ fun PlayingCard(
 
         Box(
             modifier = Modifier
-                .padding(5.dp)
-                .border(
-                    width = borderWidth,
-                    color = borderColor,
-                    shape = shape
-                )
+                .padding(10.dp)
+                .playingCardDivider()
                 .clip(shape = shape)
                 .background(color = color)
                 .padding(5.dp)
                 .drawBehind {
                     drawOval(
+                        color = Color.Black,
+                        style = Stroke(width = stroke)
+                    )
+                    drawOval(
                         color = Color.White,
                         blendMode = BlendMode.Clear
                     )
-                    drawOval(
-                        color = Color.Black,
-                        style = Stroke(
-                            width = borderWidth.value
-                        )
-                    )
                 },
-            contentAlignment = Alignment.Center,
+            contentAlignment = Alignment.Center
         ) {
             when(cardValue) {
                 is newmodel.Card.CardValue.Text -> {
@@ -104,7 +100,17 @@ fun PlayingCard(
                 }
             }
         }
-
     }
+}
 
+fun Modifier.playingCardDivider(
+    borderWidth: Dp = 4.dp,
+    borderColor: Color = Color.Black,
+    shape: Shape = RoundedCornerShape(10)
+) : Modifier {
+    return border(
+        width = borderWidth,
+        color = borderColor,
+        shape = shape
+    )
 }

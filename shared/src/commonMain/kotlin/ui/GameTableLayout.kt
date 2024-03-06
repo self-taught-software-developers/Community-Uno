@@ -70,7 +70,7 @@ fun GameTableLayout(
 fun PlayerHandLayout(
     player: Player.UI,
     modifier: Modifier = Modifier,
-    angle: Double = 25.0,
+    angle: Double = 30.0,
     isActivePlayer: Boolean = false,
 ) {
 
@@ -82,7 +82,9 @@ fun PlayerHandLayout(
             val interactionSource = remember { MutableInteractionSource() }
             val isFocused by interactionSource.collectIsHoveredAsState()
 
-            val scale by animateFloatAsState(targetValue = if (isFocused) 1.2f else 1f, label = "scale")
+            val scale by animateFloatAsState(targetValue = if (isFocused) 1.5f else 1f, label = "scale")
+            val raiseY by animateFloatAsState(targetValue = if (isFocused) -50f else 0f, label = "scale")
+            val raiseX by animateFloatAsState(targetValue = if (isFocused) 25f else 0f, label = "scale")
             val zIndex by animateFloatAsState(targetValue = if (isFocused) 1f else 0f, label = "zIndex")
 
             val cardAngle by remember {
@@ -98,6 +100,8 @@ fun PlayerHandLayout(
                         transformOrigin = if (isActivePlayer) {
                             TransformOrigin(0f, (angle/5).toFloat())
                         } else TransformOrigin(0f, 1f)
+                        translationY = raiseY
+                        translationX = raiseX
                         rotationZ = cardAngle
                     }.scale(scale).zIndex(zIndex),
                 interactionSource = interactionSource,

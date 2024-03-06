@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. Baseline reached.">
+    <list default="true" id="ef740359-e9b2-4805-a704-3feddd06483b" name="Changes" comment="2024 revision in preparation for project showcase on 3/13/2024. Implement player hand visually.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/mock/CardMock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/newmodel/mock/CardMock.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTableLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/GameTableLayout.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/commonMain/kotlin/ui/component/PlayingCard.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,14 +281,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700492151870</updated>
-    </task>
-    <task id="LOCAL-00003" summary="webApp Main.kt is now rendered when the site is launched. This allows us to declare UI elements in Kotlin code.">
-      <option name="closed" value="true" />
-      <created>1701111989276</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1701111989276</updated>
     </task>
     <task id="LOCAL-00004" summary="wasm is now implemented as a method of loading compose on web.">
       <option name="closed" value="true" />
@@ -672,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709607077145</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="2024 revision in preparation for project showcase on 3/13/2024. Implement player hand visually.">
+      <option name="closed" value="true" />
+      <created>1709670345100</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1709670345100</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -687,7 +689,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="migration back to github actions for build and publication of site." />
     <MESSAGE value="assemble with gradle added to GitHub Action with jsBrowserDistribution." />
     <MESSAGE value="assemble with gradle added to GitHub Action with webApp/build/dist." />
     <MESSAGE value="site hosting on GitHub Pages via GitHub Action with write permissions." />
@@ -712,7 +713,8 @@
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. GameState.kt added." />
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. Baseline screen." />
     <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. Baseline reached." />
-    <option name="LAST_COMMIT_MESSAGE" value="2024 revision in preparation for project showcase on 3/13/2024. Baseline reached." />
+    <MESSAGE value="2024 revision in preparation for project showcase on 3/13/2024. Implement player hand visually." />
+    <option name="LAST_COMMIT_MESSAGE" value="2024 revision in preparation for project showcase on 3/13/2024. Implement player hand visually." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
