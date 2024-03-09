@@ -3,7 +3,7 @@ package newmodel
 sealed interface Player {
 
     data class UI(
-      val hand: List<Card.Entity>
+      val hand: List<Card.UI>
     ) : Player
 
     data class Entity(

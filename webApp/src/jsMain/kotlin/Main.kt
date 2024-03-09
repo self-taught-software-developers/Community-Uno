@@ -42,12 +42,18 @@ fun main() {
 
     onWasmReady {
         CanvasBasedWindow(canvasElementId = "compose-canvas") {
-            GameTableLayout(
-                activePlayer = playerUiMock(),
-                otherPlayerList = playerUiListMock(),
-                discardPileList = cardUiListMock(),
-                drawPileList = cardUiListMock()
-            )
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .defaultMinSize(1000.dp, 1000.dp) // Set minimum size
+            ) {
+                GameTableLayout(
+                    activePlayer = playerUiMock(),
+                    otherPlayerList = playerUiListMock(),
+                    discardPileList = cardUiListMock().map { it.copy(isFaceShown = true) },
+                    drawPileList = cardUiListMock()
+                )
+            }
         }
     }
 }
