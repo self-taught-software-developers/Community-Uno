@@ -7,6 +7,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed interface Card {
+
+    data class UI(
+        val id: String,
+        val ownerId: String,
+        val properties: Properties,
+        val isFaceShown: Boolean
+    ) : Card {
+        fun getColor() : Color {
+            return if (isFaceShown) {
+                properties.color.value
+            } else Color.Black
+        }
+    }
+
     data class Entity(
         val id: String,
         val ownerId: String,

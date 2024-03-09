@@ -6,7 +6,7 @@ import kotlin.random.Random
 fun cardUiMock(
     ownerId: String = "",
     type: Card.CardType = Card.CardType.entries.random()
-) = Card.Entity(
+) = Card.UI(
     id = Random.nextDouble().toString(),
     ownerId = ownerId,
     properties = Card.Properties(
@@ -18,7 +18,7 @@ fun cardUiMock(
                 .random()
         }
     ),
-    isPlayed = false,
+    isFaceShown = false
 )
 
 
